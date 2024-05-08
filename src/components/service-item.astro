@@ -1,0 +1,28 @@
+---
+import { Image } from "astro:assets";
+import Button from "../components/button.astro";
+interface Props {
+	title: string;
+	description: string;
+	url: string;
+	img: string;
+}
+
+const { title, description, url, img } = Astro.props as Props;
+---
+
+<article class="h-full grid grid-flow-row">
+	<Image
+		src={img}
+		alt={title}
+		class="mb-6 h-96 object-cover rounded-lg"
+		loading="lazy"
+	/>
+	<h3 class="mb-4 font-semibold text-xl">
+		{title}
+	</h3>
+	<p class="mb-5">{description}</p>
+	<Button href={url} style="secondary" className="h-fit self-end"
+		>Agendar este servicio</Button
+	>
+</article>
