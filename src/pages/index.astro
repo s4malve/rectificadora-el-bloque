@@ -26,7 +26,9 @@ const LINKS = [
 		<meta name="generator" content={Astro.generator} />
 		<title>{BUSINESS_NAME} | Inicio</title>
 	</head>
-	<body class="bg-stone-950 text-stone-100 p-8 min-h-screen">
+	<body
+		class="bg-stone-950 text-stone-100 p-8 min-h-screen [&>*]:max-w-[2400px] flex flex-col w-full items-center"
+	>
 		<header
 			class="px-10 flex flex-col gap-y-10 items-center w-full bg-header-motor rounded-xl min-h-[800px] bg-no-repeat bg-cover"
 		>
@@ -63,5 +65,8 @@ const LINKS = [
 				<Button href={WHATSAPP_LINK}>Agenda tu cita</Button>
 			</div>
 		</header>
+		<main>
+			<section></section>
+		</main>
 	</body>
 </html>
