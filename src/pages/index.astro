@@ -3,7 +3,13 @@ import NavLink from "../components/nav-link.astro";
 import Button from "../components/button.astro";
 import Logo from "../components/logo.astro";
 import ServiceItem from "../components/service-item.astro";
+import Disclousure from "../components/disclousure.astro";
 
+import WhatsappIcon from "../components/icons/whatsapp.astro";
+import LocationIcon from "../components/icons/location.astro";
+import PhoneIcon from "../components/icons/phone.astro";
+
+import googleMapsImg from "../assets/maps.png";
 import motor1 from "../assets/motor-1.jpg";
 import motor2 from "../assets/motor-2.jpg";
 import motor3 from "../assets/motor-3.jpg";
@@ -12,13 +18,23 @@ import motor5 from "../assets/motor-5.jpg";
 import motor6 from "../assets/motor-6.jpg";
 import motor7 from "../assets/motor-7.jpg";
 import motor8 from "../assets/motor-8.jpg";
+import { Image } from "astro:assets";
 
 const BUSINESS_INFO = {
 	name: "Rectificadora el bloque",
-	phone: "XXXXXX", // modificar esto
+	phone: {
+		raw: "+573176478704",
+		formatted: "+57 317 647 8704",
+	},
+	address: {
+		formatted: "Cra 23 #10 - 45 / Bucaramanga Colombia",
+	},
 };
-const WHATSAPP_LINK = `https://api.whatsapp.com/api?phone=${BUSINESS_INFO.phone}`;
-const LINKS = [
+const LINKS = {
+	whatsapp: `https://api.whatsapp.com/api?phone=${BUSINESS_INFO.phone.raw}`,
+	googleMaps: "",
+};
+const NAV_LINKS = [
 	{ path: "", label: "Inicio" },
 	{ path: "#about-us", label: "Sobre Nosotros" },
 	{ path: "#services", label: "Servicios" },
@@ -84,6 +100,56 @@ const SERVICES = [
 			"Alisado y refinamiento de la superficie de las culatas para mejorar su funcionalidad y sellado",
 	},
 ];
+
+const faq = [
+	{
+		title:
+			"¿Qué servicios ofrecen para la rectificación de bloques y cigüeñales?",
+		content:
+			"Ofrecemos servicios completos de rectificación para bloques y cigüeñales, utilizando tecnología de vanguardia y técnicas precisas para restaurar la funcionalidad óptima de estos componentes vitales del motor.",
+	},
+	{
+		title: "¿Cuál es el proceso de torno que utilizan?",
+		content:
+			"Utilizamos tornos de alta precisión para mecanizar y refinar piezas de motor con tolerancias extremadamente ajustadas. Este proceso garantiza la uniformidad y la calidad en cada componente que tratamos.",
+	},
+	{
+		title: "¿Qué servicios ofrecen para las culatas de los motores?",
+		content:
+			"Ofrecemos una gama completa de servicios para culatas, desde el montaje inicial hasta el cepillado y la rectificación. Nuestros especialistas aseguran que cada culata esté en condiciones óptimas para un rendimiento confiable del motor.",
+	},
+	{
+		title: "¿Cómo puedo saber si mi motor necesita rectificación o reparación",
+		content:
+			"Si experimentas pérdida de potencia, consumo de aceite excesivo, vibraciones anormales u otros problemas de rendimiento, es recomendable que nos consultes. Nuestro equipo puede realizar un diagnóstico completo para determinar si se requiere rectificación o reparación.",
+	},
+	{
+		title: "¿Ofrecen garantía en sus servicios?",
+		content:
+			"Sí, respaldamos la calidad de nuestro trabajo con garantías sólidas. Estamos comprometidos a brindarle la tranquilidad de saber que su motor está en manos expertas y que recibirá un servicio de primera calidad.",
+	},
+];
+
+const CONTACT_INFO = [
+	{
+		label: "WhatsApp",
+		title: BUSINESS_INFO.phone.formatted,
+		icon: WhatsappIcon,
+		url: LINKS.whatsapp,
+	},
+	{
+		label: "Dirección",
+		title: BUSINESS_INFO.address.formatted,
+		icon: LocationIcon,
+		url: LINKS.googleMaps,
+	},
+	{
+		label: "Teléfono",
+		title: BUSINESS_INFO.phone.formatted,
+		icon: PhoneIcon,
+		url: `tel:${BUSINESS_INFO.phone.raw}`,
+	},
+];
 ---
 
 <html lang="es" class="scroll-smooth">
@@ -106,7 +172,7 @@ const SERVICES = [
 				</a>
 				<ul class="flex items-center gap-x-2 rounded-full bg-stone-100/10 p-2">
 					{
-						LINKS.map(({ label, path }) => {
+						NAV_LINKS.map(({ label, path }) => {
 							const isActive = Astro.url.hash === path;
 
 							return (
@@ -119,7 +185,7 @@ const SERVICES = [
 						})
 					}
 				</ul>
-				<Button href={WHATSAPP_LINK}>Agenda tu cita</Button>
+				<Button href={LINKS.whatsapp}>Agenda tu cita</Button>
 			</nav>
 			<div class="text-center flex items-center flex-col max-w-[849px]">
 				<h1 class="font-bold text-6xl mb-6">
@@ -130,7 +196,7 @@ const SERVICES = [
 					torno, pruebas hidrostáticas y una gama completa de servicios para
 					culatas, desde el montaje hasta el cepillado.
 				</p>
-				<Button href={WHATSAPP_LINK}>Agenda tu cita</Button>
+				<Button href={LINKS.whatsapp}>Agenda tu cita</Button>
 			</div>
 		</header>
 		<main class="w-full flex flex-col items-center gap-y-10">
@@ -168,12 +234,54 @@ const SERVICES = [
 									img={img}
 									title={title}
 									description={description}
-									url={`${WHATSAPP_LINK}&text=${encodeURI(title)}`}
+									url={`${LINKS.whatsapp}&text=${encodeURI(title)}`}
 								/>
 							</li>
 						))
 					}
 				</ul>
+			</section>
+			<section class="w-full flex flex-col gap-y-14">
+				<h2 class="font-semibold text-4xl">Preguntas frecuentes</h2>
+				<ul>
+					{
+						faq.map(({ title, content }) => (
+							<li>
+								<Disclousure content={content}>
+									<h3 slot="title">{title}</h3>
+								</Disclousure>
+							</li>
+						))
+					}
+				</ul>
+			</section>
+			<section class="grid grid-cols-2 gap-x-10 w-full mt-10 items-center">
+				<Image
+					src={googleMapsImg}
+					class="w-full"
+					alt="A gooogle maps view with the pin on the business direction"
+				/>
+				<div class="w- flex flex-col gap-y-10">
+					<div class="flex flex-col gap-y-3">
+						<h2 class="font-semibold text-5xl">Contáctanos</h2>
+						<p>Agenda tu cita y conoce por qué nuestro servicio es el mejor.</p>
+					</div>
+					<ul class="flex flex-col gap-y-4">
+						{
+							CONTACT_INFO.map(({ icon: Icon, label, title, url }) => (
+								<li>
+									<Button href={url} position="start" style="tertiary">
+										<Icon />
+										<div class="">
+											<h4 class="text-stone-300">{label}</h4>
+											<p class="text-xl font-semibold">{title}</p>
+										</div>
+									</Button>
+								</li>
+							))
+						}
+					</ul>
+				</div>
 			</section>
 		</main>
 	</body>

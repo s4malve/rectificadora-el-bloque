@@ -1,0 +1,48 @@
+---
+interface Props {
+	showByDefault?: boolean;
+	content: string;
+}
+
+const { showByDefault, content } = Astro.props as Props;
+---
+
+<div
+	class="border-t-2 border-stone-100/40 flex flex-col gap-y-4 items-start py-6"
+>
+	<button
+		id="disclousure-btn"
+		aria-expanded={showByDefault}
+		aria-controls="disclousure-content"
+		class="font-semibold text-2xl py-4 transition-colors hover:bg-stone-100/5 w-full flex items-center justify-between"
+		><slot name="title" /></button
+	>
+	<p hidden={showByDefault} id="disclousure-content">
+		{content}
+	</p>
+</div>
+
+<script>
+	document.addEventListener("click", function (event) {
+		// Only run on elements that have the [data-disclosure] attribute
+		// If the event.target doesn't have the attribute, return ends the callback function
+		if (!event.target.hasAttribute("data-disclosure")) return;
+
+		// Get the content to toggle
+		// If no matching content is found, end the function with return
+		var content = document.querySelector(
+			"#" + event.target.getAttribute("aria-controls"),
+		);
+		if (!content) return;
+
+		// If the content is visible, hide it
+		// Otherwise, show it
+		if (event.target.getAttribute("aria-expanded") === "true") {
+			event.target.setAttribute("aria-expanded", false);
+			content.setAttribute("hidden", "");
+		} else {
+			event.target.setAttribute("aria-expanded", true);
+			content.removeAttribute("hidden");
+		}
+	});
+</script>
