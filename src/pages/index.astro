@@ -282,5 +282,32 @@ const CONTACT_INFO = [
 				</div>
 			</section>
 		</main>
+		<footer
+			class="bg-stone-100 text-stone-950 px-10 py-12 rounded-xl w-full mt-20 flex items-center justify-between"
+		>
+			<div class="max-w-sm">
+				<Logo style="secondary" />
+				<p class="mt-4 text-stone-700">
+					Expertos en mantener tu motor en perfecto estado de funcionamiento.
+				</p>
+			</div>
+			<ul class="flex items-center gap-x-6">
+				{
+					NAV_LINKS.map(({ label, path }) => {
+						const isActive = Astro.url.hash === path;
+						return (
+							<li>
+								<a
+									href={path}
+									class:list={[isActive ? "font-semibold" : "font-normal"]}
+								>
+									{label}
+								</a>
+							</li>
+						);
+					})
+				}
+			</ul>
+		</footer>
 	</body>
 </html>
