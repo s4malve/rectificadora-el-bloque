@@ -2,7 +2,6 @@
 import NavLink from "../components/nav-link.astro";
 import Button from "../components/button.astro";
 import Logo from "../components/logo.astro";
-import ServiceItem from "../components/service-item.astro";
 import Disclousure from "../components/disclousure.astro";
 
 import WhatsappIcon from "../components/icons/whatsapp.astro";
@@ -206,7 +205,7 @@ const METADATA_INFO = {
 				<a href="#">
 					<Logo />
 				</a>
-				<button id="nav-hamburger" class="lg:hidden">
+				<button class="lg:hidden" data-hamburger aria-expanded="false">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"
@@ -225,7 +224,8 @@ const METADATA_INFO = {
 					class="absolute lg:static flex flex-col top-full inset-x-0 lg:flex-row lg:w-4/5 xl:w-2/3 lg:gap-x-3 lg:justify-between"
 				>
 					<ul
-						class="flex flex-col lg:flex-row items-center gap-x-2 rounded-lg lg:rounded-full bg-stone-100 text-stone-950 lg:text-stone-100 lg:bg-stone-100/10 p-2"
+						data-nav-links
+						class="flex flex-col lg:flex-row items-center gap-x-2 rounded-lg lg:rounded-full bg-stone-100 text-stone-950 lg:text-stone-100 lg:bg-stone-100/10 p-2 opacity-0 pointer-events-none lg:opacity-100 lg:pointer-events-auto"
 					>
 						{
 							NAV_LINKS.map(({ label, path }) => {
@@ -389,3 +389,19 @@ const METADATA_INFO = {
 		</footer>
 	</body>
 </html>
+<script>
+	const $hamburgerButton = document.querySelector("[data-hamburger]");
+	const $navLinks = document.querySelector("[data-nav-links]");
+
+	$hamburgerButton?.addEventListener("click", () => {
+		if ($hamburgerButton?.getAttribute("aria-expanded") === "true") {
+			$navLinks?.classList.remove("opacity-100", "pointer-events-auto");
+			$navLinks?.classList.add("opacity-0", "pointer-events-none");
+			$hamburgerButton.setAttribute("aria-expanded", "false");
+		} else {
+			$navLinks?.classList.remove("opacity-0", "pointer-events-none");
+			$navLinks?.classList.add("opacity-100", "pointer-events-auto");
+			$hamburgerButton.setAttribute("aria-expanded", "true");
+		}
+	});
+</script>
