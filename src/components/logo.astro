@@ -1,5 +1,24 @@
+---
+import { cva, type VariantProps } from "cva";
+
+type Props = VariantProps<typeof logo>;
+const logo = cva(["h-12 transition-colors "], {
+	variants: {
+		style: {
+			primary: "fill-stone-100 hover:fill-stone-400",
+			secondary: "fill-stone-950 hover:fill-stone-700",
+		},
+	},
+	defaultVariants: {
+		style: "primary",
+	},
+});
+
+const { style } = Astro.props as Props;
+---
+
 <svg
-	class="h-12 transition-colors fill-stone-100 hover:fill-stone-400"
+	class={logo({ style })}
 	viewBox="0 0 424 100"
 	xmlns="http://www.w3.org/2000/svg"
 >
