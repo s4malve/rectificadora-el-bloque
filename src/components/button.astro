@@ -25,11 +25,13 @@ const button = cva(
 		},
 		defaultVariants: {
 			size: "lg",
-			style: "secondary",
+			style: "primary",
 		},
 	},
 );
-const { href, className } = Astro.props as Props;
+const { href, className, size, style } = Astro.props as Props;
 ---
 
-<a href={href} target="_blank" class={button({ className })}><slot /></a>
+<a href={href} target="_blank" class={button({ className, size, style })}
+	><slot /></a
+>
