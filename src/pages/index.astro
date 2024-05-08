@@ -31,7 +31,7 @@ const BUSINESS_INFO = {
 	},
 };
 const LINKS = {
-	whatsapp: `https://api.whatsapp.com/api?phone=${BUSINESS_INFO.phone.raw}`,
+	whatsapp: `https://wa.me/${BUSINESS_INFO.phone.raw}`,
 	googleMaps: "",
 };
 const NAV_LINKS = [
@@ -234,7 +234,7 @@ const CONTACT_INFO = [
 									img={img}
 									title={title}
 									description={description}
-									url={`${LINKS.whatsapp}&text=${encodeURI(title)}`}
+									url={`${LINKS.whatsapp}?text=${encodeURI(`Hola. Me gustaría agendar una cita de: ${title}`)}`}
 								/>
 							</li>
 						))
