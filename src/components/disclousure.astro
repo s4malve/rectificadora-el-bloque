@@ -2,47 +2,48 @@
 interface Props {
 	showByDefault?: boolean;
 	content: string;
+	title: string;
 }
 
-const { showByDefault, content } = Astro.props as Props;
+const { showByDefault, content, title } = Astro.props as Props;
 ---
 
 <div
-	class="border-t-2 border-stone-100/40 flex flex-col gap-y-4 items-start py-6"
+	class="border-t-2 border-stone-100/40 flex flex-col gap-y-4 items-start py-6 transition-colors hover:bg-stone-100/5 w-full"
+	tabindex={0}
+	role="button"
+	data-disclousure
+	aria-expanded={showByDefault}
+	aria-controls="disclousure-content"
 >
-	<button
+	<h4
 		id="disclousure-btn"
-		aria-expanded={showByDefault}
-		aria-controls="disclousure-content"
-		class="font-semibold text-2xl py-4 transition-colors hover:bg-stone-100/5 w-full flex items-center justify-between"
-		><slot name="title" /></button
+		class="font-semibold text-2xl flex items-center justify-between"
 	>
-	<p hidden={showByDefault} id="disclousure-content">
+		{title}
+	</h4>
+	<p hidden={!showByDefault} id="disclousure-content">
 		{content}
 	</p>
 </div>
 
 <script>
-	document.addEventListener("click", function (event) {
-		// Only run on elements that have the [data-disclosure] attribute
-		// If the event.target doesn't have the attribute, return ends the callback function
-		if (!event.target.hasAttribute("data-disclosure")) return;
+	const disclousures = document.querySelectorAll("[data-disclousure]");
 
-		// Get the content to toggle
-		// If no matching content is found, end the function with return
-		var content = document.querySelector(
-			"#" + event.target.getAttribute("aria-controls"),
-		);
-		if (!content) return;
+	disclousures.forEach((disclousure) => {
+		disclousure.addEventListener("click", function (event) {
+			const $content = disclousure.querySelector("#disclousure-content");
+			// If the content is visible, hide it
+			// Otherwise, show it
+			if (!event && !content) return;
 
-		// If the content is visible, hide it
-		// Otherwise, show it
-		if (event.target.getAttribute("aria-expanded") === "true") {
-			event.target.setAttribute("aria-expanded", false);
-			content.setAttribute("hidden", "");
-		} else {
-			event.target.setAttribute("aria-expanded", true);
-			content.removeAttribute("hidden");
-		}
+			if (event.target.getAttribute("aria-expanded") === "true") {
+				event.target.setAttribute("aria-expanded", false);
+				$content.setAttribute("hidden", "");
+			} else {
+				event.target.setAttribute("aria-expanded", true);
+				$content.removeAttribute("hidden");
+			}
+		});
 	});
 </script>

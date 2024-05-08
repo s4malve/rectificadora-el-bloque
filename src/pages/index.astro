@@ -247,9 +247,7 @@ const CONTACT_INFO = [
 					{
 						faq.map(({ title, content }) => (
 							<li>
-								<Disclousure content={content}>
-									<h3 slot="title">{title}</h3>
-								</Disclousure>
+								<Disclousure content={content} title={title} />
 							</li>
 						))
 					}
