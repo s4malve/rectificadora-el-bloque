@@ -5,7 +5,7 @@ export default {
     extend: {
       backgroundImage: {
         "header-motor":
-          "linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0)), url('./src/assets/motor.avif')",
+          "linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0)), url('/motor.avif')",
       },
     },
   },
