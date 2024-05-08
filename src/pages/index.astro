@@ -1,5 +1,14 @@
 ---
+import NavLink from "../components/nav-link.astro";
 
+const BUSINESS_NAME = "Rectificadora el bloque";
+const LINKS = [
+	{ path: "", label: "Inicio" },
+	{ path: "#about-us", label: "Sobre Nosotros" },
+	{ path: "#services", label: "Servicios" },
+	{ path: "#contact-us", label: "Contáctanos" },
+	{ path: "#reviews", label: "Opiniones" },
+];
 ---
 
 <html lang="es">
@@ -8,9 +17,41 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Rectificadora el bloque | Inicio</title>
+		<title>{BUSINESS_NAME} | Inicio</title>
 	</head>
-	<body>
-		<h1>Astro</h1>
+	<body class="bg-stone-950 text-stone-100 p-8 min-h-screen">
+		<header
+			class="px-10 flex flex-col gap-y-10 items-center w-full bg-header-motor rounded-xl min-h-[800px] bg-no-repeat bg-cover"
+		>
+			<nav class="flex items-center justify-between py-10 w-full">
+				<a href="/"><img src="" alt=`${BUSINESS_NAME} logo` /></a>
+				<ul class="flex items-center gap-x-2 rounded-full bg-stone-100/10 p-2">
+					{
+						LINKS.map(({ label, path }) => {
+							const isActive = Astro.url.hash === path;
+
+							return (
+								<li>
+									<NavLink href={path} isActive={isActive}>
+										{label}
+									</NavLink>
+								</li>
+							);
+						})
+					}
+				</ul>
+			</nav>
+			<div class="text-center flex items-center flex-col max-w-[849px]">
+				<h1 class="font-bold text-6xl mb-6">
+					Rectificadora de culatas de motor de aluminio y acero
+				</h1>
+				<p class="mb-8 max-w-prose text-lg">
+					Especialistas en motores: Rectificación de bloques y cigüeñales,
+					torno, pruebas hidrostáticas y una gama completa de servicios para
+					culatas, desde el montaje hasta el cepillado.
+				</p>
+				<button>Empiza con nosotros</button>
+			</div>
+		</header>
 	</body>
 </html>
