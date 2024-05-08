@@ -2,18 +2,87 @@
 import NavLink from "../components/nav-link.astro";
 import Button from "../components/button.astro";
 import Logo from "../components/logo.astro";
+import ServiceItem from "../components/service-item.astro";
+
+import motor1 from "../assets/motor-1.jpg";
+import motor2 from "../assets/motor-2.jpg";
+import motor3 from "../assets/motor-3.jpg";
+import motor4 from "../assets/motor-4.jpg";
+import motor5 from "../assets/motor-5.jpg";
+import motor6 from "../assets/motor-6.jpg";
+import motor7 from "../assets/motor-7.jpg";
+import motor8 from "../assets/motor-8.jpg";
 
 const BUSINESS_INFO = {
 	name: "Rectificadora el bloque",
 	phone: "XXXXXX", // modificar esto
 };
-const WHATSAPP_LINK = `https://api.whatsapp.com/api?phone=${BUSINESS_INFO.phone}&text=`;
+const WHATSAPP_LINK = `https://api.whatsapp.com/api?phone=${BUSINESS_INFO.phone}`;
 const LINKS = [
 	{ path: "", label: "Inicio" },
 	{ path: "#about-us", label: "Sobre Nosotros" },
 	{ path: "#services", label: "Servicios" },
 	{ path: "#contact-us", label: "Contáctanos" },
 	{ path: "#reviews", label: "Opiniones" },
+];
+
+const SERVICES = [
+	{
+		img: motor1,
+		name: "rectificacion-bloque",
+		title: "Rectificación de bloque",
+		description:
+			"Reparación de los bloques del motor para asegurar que estén perfectamente lisos y aptos para un rendimiento óptimo",
+	},
+	{
+		img: motor2,
+		name: "",
+		title: "Rectificación de cigüeñales",
+		description:
+			"Renovación de cigüeñales, un componente crucial del motor, para que funcionen como nuevos",
+	},
+	{
+		img: motor3,
+		name: "",
+		title: "Torno",
+		description:
+			"Maquinado de precisión para dar forma o afinar piezas del motor para un mejor ajuste y funcionamiento.",
+	},
+	{
+		img: motor4,
+		name: "",
+		title: "Prueba hidrostática",
+		description:
+			"Verificación de piezas del motor en busca de fugas o debilidades al someterlas a presión de agua, garantizando seguridad y confiabilidad.",
+	},
+	{
+		img: motor5,
+		name: "",
+		title: "Sentada culatas",
+		description:
+			"Verificación, ajuste o mejora del ajuste de las culatas, una parte crítica del motor",
+	},
+	{
+		img: motor6,
+		name: "",
+		title: "Armada y desarmada culatas",
+		description:
+			"Ensamblaje y desmontaje de culatas, incluyendo válvulas y otros componentes, como parte del mantenimiento o reparación del motor",
+	},
+	{
+		img: motor7,
+		name: "",
+		title: "Enderezada culatas",
+		description:
+			"Rectificación de las culatas para corregir cualquier deformación o distorsión, garantizando un sellado y rendimiento adecuados.",
+	},
+	{
+		img: motor8,
+		name: "",
+		title: "Cepillado culatas",
+		description:
+			"Alisado y refinamiento de la superficie de las culatas para mejorar su funcionalidad y sellado",
+	},
 ];
 ---
 
@@ -64,7 +133,7 @@ const LINKS = [
 				<Button href={WHATSAPP_LINK}>Agenda tu cita</Button>
 			</div>
 		</header>
-		<main class="w-full flex flex-col items-center">
+		<main class="w-full flex flex-col items-center gap-y-10">
 			<section
 				class="flex items-start gap-x-6 py-20 justify-between w-full max-w-screen-lg"
 			>
@@ -77,6 +146,34 @@ const LINKS = [
 					es preciso y con nuestra avanzada tecnología garantizan motores
 					impecables y duraderos.
 				</p>
+			</section>
+			<section
+				class="py-16 px-14 rounded-3xl bg-stone-100 text-stone-950 w-full flex flex-col gap-y-16"
+			>
+				<header class="flex items-center justify-between gap-x-4">
+					<h2 class="font-semibold text-4xl mb-3 max-w-md">
+						Agenda tu Cita con Especialistas en Rectificación y Más
+					</h2>
+					<p class="max-w-md">
+						¡Potencia tu motor con nosotros! Reserva ahora y disfruta de
+						servicios especializados: rectificación de bloques y cigüeñales,
+						torno, pruebas hidrostáticas y más para culatas.
+					</p>
+				</header>
+				<ul class="grid grid-cols-[repeat(auto-fill,minmax(342px,_1fr))] gap-8">
+					{
+						SERVICES.map(({ img, title, description }) => (
+							<li>
+								<ServiceItem
+									img={img}
+									title={title}
+									description={description}
+									url={`${WHATSAPP_LINK}&text=${encodeURI(title)}`}
+								/>
+							</li>
+						))
+					}
+				</ul>
 			</section>
 		</main>
 	</body>
