@@ -161,37 +161,58 @@ const CONTACT_INFO = [
 		<title>{BUSINESS_INFO.name} | Inicio</title>
 	</head>
 	<body
-		class="bg-stone-950 text-stone-100 p-8 min-h-screen [&>*]:max-w-[2400px] flex flex-col w-full items-center"
+		class="bg-stone-950 text-stone-100 p-3 lg:p-8 min-h-screen flex flex-col w-full items-center"
 	>
 		<header
-			class="px-10 flex flex-col gap-y-10 items-center w-full bg-header-motor rounded-xl min-h-[800px] bg-no-repeat bg-cover"
+			class="px-4 lg:px-10 flex flex-col gap-y-10 items-center w-full bg-header-motor rounded-xl min-h-[800px] bg-no-repeat bg-cover"
 		>
-			<nav class="flex items-center justify-between py-10 w-full">
-				<a href="/">
+			<nav class="flex items-center justify-between py-10 w-full relative">
+				<a href="#">
 					<Logo />
 				</a>
-				<ul class="flex items-center gap-x-2 rounded-full bg-stone-100/10 p-2">
-					{
-						NAV_LINKS.map(({ label, path }) => {
-							const isActive = Astro.url.hash === path;
+				<button id="nav-hamburger" class="lg:hidden">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke-width="1.5"
+						stroke="currentColor"
+						class="w-6 h-6"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+					</svg>
+				</button>
+				<div
+					class="absolute lg:static flex flex-col top-full inset-x-0 lg:flex-row lg:w-4/5 xl:w-2/3 lg:gap-x-3 lg:justify-between"
+				>
+					<ul
+						class="flex flex-col lg:flex-row items-center gap-x-2 rounded-lg lg:rounded-full bg-stone-100 text-stone-950 lg:text-stone-100 lg:bg-stone-100/10 p-2"
+					>
+						{
+							NAV_LINKS.map(({ label, path }) => {
+								const isActive = Astro.url.hash === path;
 
-							return (
-								<li>
-									<NavLink href={path} isActive={isActive}>
-										{label}
-									</NavLink>
-								</li>
-							);
-						})
-					}
-				</ul>
-				<Button href={LINKS.whatsapp}>Agenda tu cita</Button>
+								return (
+									<li>
+										<NavLink href={path} isActive={isActive}>
+											{label}
+										</NavLink>
+									</li>
+								);
+							})
+						}
+					</ul>
+					<Button href={LINKS.whatsapp}>Agenda tu cita</Button>
+				</div>
 			</nav>
 			<div class="text-center flex items-center flex-col max-w-[849px]">
-				<h1 class="font-bold text-6xl mb-6">
+				<h1 class="font-bold text-3xl lg:text-6xl mb-6">
 					Rectificadora de culatas de motor de aluminio y acero
 				</h1>
-				<p class="mb-8 max-w-prose text-lg">
+				<p class="mb-8 max-w-prose lg:text-lg">
 					Especialistas en motores: Rectificación de bloques y cigüeñales,
 					torno, pruebas hidrostáticas y una gama completa de servicios para
 					culatas, desde el montaje hasta el cepillado.
@@ -201,12 +222,12 @@ const CONTACT_INFO = [
 		</header>
 		<main class="w-full flex flex-col items-center gap-y-10" id="about-us">
 			<section
-				class="flex items-start gap-x-16 py-20 justify-between w-full max-w-6xl"
+				class="flex flex-col items-start gap-x-16 gap-y-8 py-20 justify-between w-full max-w-6xl lg:flex-row"
 			>
 				<h2 class="font-semibold text-2xl leading-relaxed text-nowrap">
 					Servicios de Calidad
 				</h2>
-				<p class="max-w-screen-[838px] text-4xl leading-relaxed">
+				<p class="max-w-screen-[838px] text-xl lg:text-4xl leading-relaxed">
 					En {BUSINESS_INFO.name}, la calidad es nuestro sello. Desde la
 					rectificación de bloques hasta la montura de culatas, nuestro enfoque
 					es preciso y con nuestra avanzada tecnología garantizan motores
@@ -214,11 +235,13 @@ const CONTACT_INFO = [
 				</p>
 			</section>
 			<section
-				class="py-16 px-14 rounded-3xl bg-stone-100 text-stone-950 w-full flex flex-col gap-y-16"
+				class="px-6 py-8 lg:py-16 lg:px-14 rounded-3xl bg-stone-100 text-stone-950 w-full flex flex-col gap-y-16"
 				id="services"
 			>
-				<header class="flex items-center justify-between gap-x-4">
-					<h2 class="font-semibold text-4xl mb-3 max-w-md">
+				<header
+					class="flex flex-col items-center justify-between gap-x-4 lg:flex-row"
+				>
+					<h2 class="font-semibold text-2xl lg:text-4xl mb-3 max-w-md">
 						Agenda tu Cita con Especialistas en Rectificación y Más
 					</h2>
 					<p class="max-w-md">
@@ -227,16 +250,29 @@ const CONTACT_INFO = [
 						torno, pruebas hidrostáticas y más para culatas.
 					</p>
 				</header>
-				<ul class="grid grid-cols-[repeat(auto-fill,minmax(342px,_1fr))] gap-8">
+				<ul
+					class="grid lg:grid-cols-[repeat(auto-fill,minmax(342px,_1fr))] gap-8 gap-x-10"
+				>
 					{
 						SERVICES.map(({ img, title, description }) => (
 							<li>
-								<ServiceItem
-									img={img}
-									title={title}
-									description={description}
-									url={`${LINKS.whatsapp}?text=${encodeURI(`Hola. Me gustaría agendar una cita de: ${title}`)}`}
-								/>
+								<article class="h-full grid grid-flow-row">
+									<Image
+										src={img}
+										alt={title}
+										class="mb-6 min-h-[372px] lg:h-96 object-cover rounded-lg w-full"
+										loading="lazy"
+									/>
+									<h3 class="mb-4 font-semibold text-xl">{title}</h3>
+									<p class="mb-5">{description}</p>
+									<Button
+										href={`${LINKS.whatsapp}?text=${encodeURI(`Hola. Me gustaría agendar una cita de: ${title}`)}`}
+										style="secondary"
+										className="h-fit self-end"
+									>
+										Agendar este servicio
+									</Button>
+								</article>
 							</li>
 						))
 					}
@@ -255,7 +291,7 @@ const CONTACT_INFO = [
 				</ul>
 			</section>
 			<section
-				class="grid grid-cols-2 gap-x-10 w-full mt-10 items-center"
+				class="grid grid-rows-2 lg:grid-cols-2 lg:grid-rows-1 gap-x-10 w-full mt-10 items-center"
 				id="contact-us"
 			>
 				<Image
@@ -273,7 +309,9 @@ const CONTACT_INFO = [
 							CONTACT_INFO.map(({ icon: Icon, label, title, url }) => (
 								<li>
 									<Button href={url} position="start" style="tertiary">
-										<Icon />
+										<div class="flex-nowrap">
+											<Icon />
+										</div>
 										<div class="">
 											<h4 class="text-stone-300">{label}</h4>
 											<p class="text-xl font-semibold">{title}</p>
@@ -287,7 +325,7 @@ const CONTACT_INFO = [
 			</section>
 		</main>
 		<footer
-			class="bg-stone-100 text-stone-950 px-10 py-12 rounded-xl w-full mt-20 flex items-center justify-between"
+			class="bg-stone-100 text-stone-950 py-10 px-8 lg:px-10 lg:py-12 rounded-xl w-full mt-20 flex items-center justify-between flex-col gap-y-16 lg:flex-row"
 		>
 			<div class="max-w-sm">
 				<Logo style="secondary" />
@@ -295,7 +333,7 @@ const CONTACT_INFO = [
 					Expertos en mantener tu motor en perfecto estado de funcionamiento.
 				</p>
 			</div>
-			<ul class="flex items-center gap-x-6">
+			<ul class="flex items-center gap-6 flex-col lg:flex-row">
 				{
 					NAV_LINKS.map(({ label, path }) => {
 						const isActive = Astro.url.hash === path;
