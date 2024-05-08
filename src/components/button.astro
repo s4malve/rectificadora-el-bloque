@@ -1,0 +1,32 @@
+---
+import { type VariantProps, cva } from "cva";
+
+interface Props extends Button {
+	href: string;
+}
+type Button = VariantProps<typeof button>;
+
+const button = cva(
+	[
+		"rounded-full flex items-center gap-x-2 justify-center font-semibold border transition-[color_border_background-color]",
+	],
+	{
+		variants: {
+			style: {
+				primary:
+					"bg-stone-100 text-stone-950 hover:bg-transparent border-transparent hover:border-stone-100 hover:text-stone-100",
+			},
+			size: {
+				lg: "py-2 px-6",
+			},
+		},
+		defaultVariants: {
+			style: "primary",
+			size: "lg",
+		},
+	},
+);
+const { href } = Astro.props as Props;
+---
+
+<a href={href} target="_blank" class={button({})}><slot /></a>
