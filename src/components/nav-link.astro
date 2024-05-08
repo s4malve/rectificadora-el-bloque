@@ -7,7 +7,7 @@ interface Props extends Button {
 
 const { href, isActive } = Astro.props as Props;
 const button = cva(
-	["border py-2 px-4 rounded-full transition-colors inline-block"],
+	["border py-2 px-4 rounded-full transition-colors inline-block text-nowrap"],
 	{
 		variants: {
 			isActive: {
