@@ -1,6 +1,13 @@
 ---
 import NavLink from "../components/nav-link.astro";
+import Button from "../components/button.astro";
+import Logo from "../components/logo.astro";
 
+const BUSINESS_INFO = {
+	name: "Rectificadora el bloque",
+	phone: "XXXXXX", // modificar esto
+};
+const WHATSAPP_LINK = `https://api.whatsapp.com/api?phone=${BUSINESS_INFO.phone}&text=`;
 const BUSINESS_NAME = "Rectificadora el bloque";
 const LINKS = [
 	{ path: "", label: "Inicio" },
@@ -11,7 +18,7 @@ const LINKS = [
 ];
 ---
 
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -24,7 +31,9 @@ const LINKS = [
 			class="px-10 flex flex-col gap-y-10 items-center w-full bg-header-motor rounded-xl min-h-[800px] bg-no-repeat bg-cover"
 		>
 			<nav class="flex items-center justify-between py-10 w-full">
-				<a href="/"><img src="" alt=`${BUSINESS_NAME} logo` /></a>
+				<a href="/">
+					<Logo />
+				</a>
 				<ul class="flex items-center gap-x-2 rounded-full bg-stone-100/10 p-2">
 					{
 						LINKS.map(({ label, path }) => {
@@ -40,6 +49,7 @@ const LINKS = [
 						})
 					}
 				</ul>
+				<Button href={WHATSAPP_LINK}>Agenda tu cita</Button>
 			</nav>
 			<div class="text-center flex items-center flex-col max-w-[849px]">
 				<h1 class="font-bold text-6xl mb-6">
@@ -50,7 +60,7 @@ const LINKS = [
 					torno, pruebas hidrostáticas y una gama completa de servicios para
 					culatas, desde el montaje hasta el cepillado.
 				</p>
-				<button>Empiza con nosotros</button>
+				<Button href={WHATSAPP_LINK}>Agenda tu cita</Button>
 			</div>
 		</header>
 	</body>
