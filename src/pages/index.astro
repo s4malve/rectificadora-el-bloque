@@ -8,7 +8,6 @@ const BUSINESS_INFO = {
 	phone: "XXXXXX", // modificar esto
 };
 const WHATSAPP_LINK = `https://api.whatsapp.com/api?phone=${BUSINESS_INFO.phone}&text=`;
-const BUSINESS_NAME = "Rectificadora el bloque";
 const LINKS = [
 	{ path: "", label: "Inicio" },
 	{ path: "#about-us", label: "Sobre Nosotros" },
@@ -24,7 +23,7 @@ const LINKS = [
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{BUSINESS_NAME} | Inicio</title>
+		<title>{BUSINESS_INFO.name} | Inicio</title>
 	</head>
 	<body
 		class="bg-stone-950 text-stone-100 p-8 min-h-screen [&>*]:max-w-[2400px] flex flex-col w-full items-center"
@@ -65,8 +64,20 @@ const LINKS = [
 				<Button href={WHATSAPP_LINK}>Agenda tu cita</Button>
 			</div>
 		</header>
-		<main>
-			<section></section>
+		<main class="w-full flex flex-col items-center">
+			<section
+				class="flex items-start gap-x-6 py-20 justify-between w-full max-w-screen-lg"
+			>
+				<h2 class="font-semibold text-2xl leading-relaxed">
+					Servicios de Calidad
+				</h2>
+				<p class="max-w-3xl text-4xl leading-relaxed">
+					En {BUSINESS_INFO.name}, la calidad es nuestro sello. Desde la
+					rectificación de bloques hasta la montura de culatas, nuestro enfoque
+					es preciso y con nuestra avanzada tecnología garantizan motores
+					impecables y duraderos.
+				</p>
+			</section>
 		</main>
 	</body>
 </html>
