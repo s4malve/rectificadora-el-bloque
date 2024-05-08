@@ -1,8 +1,9 @@
 ---
-import { type VariantProps, cva } from "cva";
+import { type VariantProps, cva, cx } from "cva";
 
 interface Props extends Button {
 	href: string;
+	className?: string;
 }
 type Button = VariantProps<typeof button>;
 
@@ -15,18 +16,20 @@ const button = cva(
 			style: {
 				primary:
 					"bg-stone-100 text-stone-950 hover:bg-transparent border-transparent hover:border-stone-100 hover:text-stone-100",
+				secondary:
+					"border-stone-950 text-stone-950 hover:bg-stone-950 hover:text-stone-100",
 			},
 			size: {
 				lg: "py-2 px-6",
 			},
 		},
 		defaultVariants: {
-			style: "primary",
 			size: "lg",
+			style: "secondary",
 		},
 	},
 );
-const { href } = Astro.props as Props;
+const { href, className } = Astro.props as Props;
 ---
 
-<a href={href} target="_blank" class={button({})}><slot /></a>
+<a href={href} target="_blank" class={button({ className })}><slot /></a>
