@@ -1,0 +1,27 @@
+---
+import { cva, type VariantProps } from "cva";
+
+interface Props extends Button {
+	href: string;
+}
+
+const { href, isActive } = Astro.props as Props;
+const button = cva(
+	["border py-2 px-4 rounded-full transition-colors inline-block"],
+	{
+		variants: {
+			isActive: {
+				true: "border-stone-100/30 bg-stone-100/10 font-semibold hover:bg-stone-100/20",
+				false: "font-normal border-transparent hover:bg-stone-100/5",
+			},
+		},
+		defaultVariants: {
+			isActive: false,
+		},
+	},
+);
+
+type Button = VariantProps<typeof button>;
+---
+
+<a href={href} class={button({ isActive })}><slot /></a>
