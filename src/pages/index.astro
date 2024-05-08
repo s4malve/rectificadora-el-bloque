@@ -202,10 +202,10 @@ const METADATA_INFO = {
 			class="px-4 lg:px-10 flex flex-col gap-y-10 items-center w-full bg-header-motor rounded-xl min-h-[800px] bg-no-repeat bg-cover"
 		>
 			<nav class="flex items-center justify-between py-10 w-full relative">
-				<a href="#">
+				<a href="#" class="mr-10">
 					<Logo />
 				</a>
-				<button class="lg:hidden" data-hamburger aria-expanded="false">
+				<button class="xl:hidden" data-hamburger aria-expanded="false">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"
@@ -221,11 +221,11 @@ const METADATA_INFO = {
 					</svg>
 				</button>
 				<div
-					class="absolute lg:static flex flex-col top-full inset-x-0 lg:flex-row lg:w-4/5 xl:w-2/3 lg:gap-x-3 lg:justify-between"
+					class="absolute xl:static flex flex-col top-full inset-x-0 lg:flex-row xl:w-[74%] 2xl:w-[67%] lg:gap-x-3 xl:justify-between opacity-0 pointer-events-none xl:opacity-100 xl:pointer-events-auto bg-stone-100 py-8 xl:py-0 gap-y-10 items-center xl:bg-transparent"
+					data-nav-links
 				>
 					<ul
-						data-nav-links
-						class="flex flex-col lg:flex-row items-center gap-x-2 rounded-lg lg:rounded-full bg-stone-100 text-stone-950 lg:text-stone-100 lg:bg-stone-100/10 p-2 opacity-0 pointer-events-none lg:opacity-100 lg:pointer-events-auto"
+						class="flex flex-col xl:flex-row items-center gap-x-2 rounded-lg xl:rounded-full text-stone-950 xl:text-stone-100 xl:bg-stone-100/10 p-2"
 					>
 						{
 							NAV_LINKS.map(({ label, path }) => {
@@ -241,7 +241,14 @@ const METADATA_INFO = {
 							})
 						}
 					</ul>
-					<Button href={LINKS.whatsapp}>Agenda tu cita</Button>
+					<Button href={LINKS.whatsapp} className="hidden xl:flex"
+						>Agenda tu cita</Button
+					>
+					<Button
+						href={LINKS.whatsapp}
+						className="xl:hidden w-fit"
+						style="secondary">Agenda tu cita</Button
+					>
 				</div>
 			</nav>
 			<div class="text-center flex items-center flex-col max-w-[849px]">
