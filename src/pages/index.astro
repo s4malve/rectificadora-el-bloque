@@ -18,7 +18,27 @@ import motor6 from "../assets/motor-6.jpg";
 import motor7 from "../assets/motor-7.jpg";
 import motor8 from "../assets/motor-8.jpg";
 
-import avatar1 from "../assets/avatar-1.jpg";
+import avatar1 from "../assets/avatar-1.avif";
+import avatar2 from "../assets/avatar-2.avif";
+import avatar3 from "../assets/avatar-3.avif";
+import avatar4 from "../assets/avatar-4.avif";
+import avatar5 from "../assets/avatar-5.avif";
+import avatar6 from "../assets/avatar-6.avif";
+import avatar7 from "../assets/avatar-7.avif";
+import avatar8 from "../assets/avatar-8.avif";
+import avatar9 from "../assets/avatar-9.avif";
+import avatar10 from "../assets/avatar-10.avif";
+import avatar11 from "../assets/avatar-11.avif";
+import avatar12 from "../assets/avatar-12.avif";
+import avatar13 from "../assets/avatar-13.avif";
+import avatar14 from "../assets/avatar-14.avif";
+import avatar15 from "../assets/avatar-15.avif";
+import avatar16 from "../assets/avatar-16.avif";
+import avatar17 from "../assets/avatar-17.avif";
+import avatar18 from "../assets/avatar-18.avif";
+import avatar19 from "../assets/avatar-19.avif";
+import avatar20 from "../assets/avatar-20.avif";
+import avatar21 from "../assets/avatar-21.avif";
 import { Image } from "astro:assets";
 
 const BUSINESS_INFO = {
@@ -103,90 +123,27 @@ const SERVICES = [
 ];
 
 const TESTIMONIALS_PEOPLE = [
-	{
-		avatar: avatar1,
-		name: "Alex Suprun",
-	},
-	{
-		avatar: avatar1,
-		name: "Alex Suprun",
-	},
-	{
-		avatar: avatar1,
-		name: "Alex Suprun",
-	},
-	{
-		avatar: avatar1,
-		name: "Alex Suprun",
-	},
-	{
-		avatar: avatar1,
-		name: "Alex Suprun",
-	},
-	{
-		avatar: avatar1,
-		name: "Alex Suprun",
-	},
-	{
-		avatar: avatar1,
-		name: "Alex Suprun",
-	},
-	{
-		avatar: avatar1,
-		name: "Alex Suprun",
-	},
-	{
-		avatar: avatar1,
-		name: "Alex Suprun",
-	},
-	{
-		avatar: avatar1,
-		name: "Alex Suprun",
-	},
-	{
-		avatar: avatar1,
-		name: "Alex Suprun",
-	},
-	{
-		avatar: avatar1,
-		name: "Alex Suprun",
-	},
-	{
-		avatar: avatar1,
-		name: "Alex Suprun",
-	},
-	{
-		avatar: avatar1,
-		name: "Alex Suprun",
-	},
-	{
-		avatar: avatar1,
-		name: "Alex Suprun",
-	},
-	{
-		avatar: avatar1,
-		name: "Alex Suprun",
-	},
-	{
-		avatar: avatar1,
-		name: "Alex Suprun",
-	},
-	{
-		avatar: avatar1,
-		name: "Alex Suprun",
-	},
-	{
-		avatar: avatar1,
-		name: "Alex Suprun",
-	},
-	{
-		avatar: avatar1,
-		name: "Alex Suprun",
-	},
-	{
-		avatar: avatar1,
-		name: "Alex Suprun",
-	},
+	{ name: "John Smith", avatar: avatar1 },
+	{ name: "Alice Johnson", avatar: avatar2 },
+	{ name: "Michael Brown", avatar: avatar3 },
+	{ name: "Emily Davis", avatar: avatar4 },
+	{ name: "David Wilson", avatar: avatar5 },
+	{ name: "Sarah Martinez", avatar: avatar6 },
+	{ name: "Daniel Anderson", avatar: avatar7 },
+	{ name: "Emma Taylor", avatar: avatar8 },
+	{ name: "Ryan Thomas", avatar: avatar9 },
+	{ name: "Olivia Hernandez", avatar: avatar10 },
+	{ name: "Jacob Moore", avatar: avatar11 },
+	{ name: "Sophia Martin", avatar: avatar12 },
+	{ name: "Matthew Rodriguez", avatar: avatar13 },
+	{ name: "Isabella Lee", avatar: avatar14 },
+	{ name: "Ethan Clark", avatar: avatar15 },
+	{ name: "Mia Walker", avatar: avatar16 },
+	{ name: "Nathan Hall", avatar: avatar17 },
+	{ name: "Ava Allen", avatar: avatar18 },
+	{ name: "Andrew Young", avatar: avatar19 },
+	{ name: "Chloe Lewis", avatar: avatar20 },
+	{ name: "James King", avatar: avatar21 },
 ];
 
 const CONTACT_INFO = [
@@ -468,55 +425,91 @@ const METADATA_INFO = {
 		</footer>
 	</body>
 </html>
-<script is:inline define:vars={{ avatar1 }}>
+<script
+	is:inline
+	define:vars={{
+		avatar1,
+		avatar2,
+		avatar3,
+		avatar4,
+		avatar5,
+		avatar6,
+		avatar7,
+		avatar8,
+		avatar9,
+		avatar10,
+	}}
+>
 	const TESTIMONIALS = [
 		{
-			name: "Ana López",
-			avatar: avatar1,
 			testimony:
-				"Mi experiencia con Especialistas en Motores ha sido excelente. Necesitaba rectificar el bloque de mi automóvil y su servicio fue rápido y eficiente. Recomiendo ampliamente sus servicios.",
-			businessLogo: "especialistas_en_motores_logo.png",
-			job: "SEO de la Startup",
+				"Quisiera expresar mi más sincero agradecimiento por el excelente trabajo realizado en mi motor. La rectificación de bloques y cigüeñales fue impecable, y el resultado final superó todas mis expectativas. No solo lograron devolverle la vida a mi motor, sino que también lo dejaron funcionando de manera más eficiente que nunca. Como ingeniero mecánico, he trabajado con diversos servicios de rectificación en el pasado, pero ninguno ha alcanzado el nivel de profesionalismo y calidad que encontré aquí. Recomiendo ampliamente este servicio a todos los entusiastas de los motores.",
+			name: "Diego Ramírez",
+			job: "Ingeniero Mecánico",
+			avatar: avatar1,
 		},
 		{
-			name: "Juan Martínez",
-			avatar: avatar1,
 			testimony:
-				"Estoy muy impresionado con la calidad del trabajo realizado por Especialistas en Motores. Me ayudaron con la rectificación de un cigüeñal y el resultado fue impecable. Definitivamente volveré a confiar en ellos en el futuro.",
-			businessLogo: "especialistas_en_motores_logo.png",
-			job: "SEO de la Startup",
-		},
-		{
-			name: "María Rodríguez",
-			avatar: avatar1,
-			testimony:
-				"Los servicios de Especialistas en Motores son de primera categoría. Su experiencia en pruebas hidrostáticas es notable, y el trato al cliente es excepcional. ¡No dudaría en recomendarlos!",
-			businessLogo: "especialistas_en_motores_logo.png",
-			job: "SEO de la Startup",
-		},
-		{
-			name: "Carlos García",
-			avatar: avatar1,
-			testimony:
-				"Como mecánico profesional, siempre busco la perfección en cada trabajo. Especialistas en Motores cumple con mis estándares. Su gama completa de servicios para culatas es incomparable. ¡Los felicito por su excelente labor!",
-			businessLogo: "especialistas_en_motores_logo.png",
-			job: "SEO de la Startup",
-		},
-		{
+				"El servicio de torno que recibí fue simplemente excepcional. Desde el primer contacto hasta la entrega final, todo fue manejado con un profesionalismo impecable. La precisión y calidad del trabajo realizado en mi motor son evidentes, y estoy extremadamente satisfecho con los resultados.",
 			name: "Laura Fernández",
-			avatar: avatar1,
-			testimony:
-				"Excelente atención y servicio por parte del equipo de Especialistas en Motores. Me ayudaron con el montaje de un motor y todo salió perfecto. ¡Muy recomendados!",
-			businessLogo: "especialistas_en_motores_logo.png",
-			job: "SEO de la Startup",
+			job: "Dueña de Taller Mecánico",
+			avatar: avatar2,
 		},
 		{
-			name: "Pedro Sánchez",
-			avatar: avatar1,
 			testimony:
-				"Confío plenamente en Especialistas en Motores para cualquier trabajo relacionado con motores. Su experiencia en el cepillado de culatas es insuperable. Siempre quedo satisfecho con sus servicios.",
-			businessLogo: "especialistas_en_motores_logo.png",
-			job: "SEO de la Startup",
+				"La atención al cliente que recibí durante las pruebas hidrostáticas fue excepcional. Desde el momento en que contacté con el equipo hasta la finalización del proceso, me sentí completamente respaldado y bien atendido.",
+			name: "Daniel Gómez",
+			job: "Conductor de Transporte de Carga",
+			avatar: avatar3,
+		},
+		{
+			testimony:
+				"El trabajo de rectificación realizado en mi bloque fue más allá de mis expectativas. La atención al detalle y la precisión con la que se llevó a cabo el proceso son dignas de elogio.",
+			name: "Carlos Rodríguez",
+			job: "Mecánico Automotriz",
+			avatar: avatar4,
+		},
+		{
+			testimony:
+				"Me quedé impresionado con la calidad del servicio de torno que recibí. Todo el proceso fue rápido y eficiente, y el resultado final superó mis expectativas. Definitivamente volveré a utilizar este servicio en el futuro.",
+			name: "Sofía López",
+			job: "Aficionada a la Mecánica",
+			avatar: avatar5,
+		},
+		{
+			testimony:
+				"La atención al cliente que recibí durante las pruebas hidrostáticas fue excepcional. Desde el primer contacto hasta la entrega final, todo fue manejado con un profesionalismo impecable.",
+			name: "Luis González",
+			job: "Piloto de Carreras",
+			avatar: avatar6,
+		},
+		{
+			testimony:
+				"El equipo demostró un gran profesionalismo en las pruebas hidrostáticas. ¡Increíble trabajo!",
+			name: "Jorge Rodríguez",
+			job: "Ingeniero Naval",
+			avatar: avatar7,
+		},
+		{
+			testimony:
+				"El servicio de rectificación de bloques y cigüeñales fue excepcional. El motor de mi vehículo ahora funciona mejor que nunca. ¡Gracias!",
+			name: "María Torres",
+			job: "Dueña de Auto Lavado",
+			avatar: avatar8,
+		},
+		{
+			testimony:
+				"Estoy muy contento con el servicio de montaje hasta el cepillado. El equipo fue muy profesional y el resultado final fue excelente. ¡Lo recomiendo ampliamente!",
+			name: "Roberto Pérez",
+			job: "Entusiasta de los Motores",
+			avatar: avatar9,
+		},
+		{
+			testimony:
+				"Excelente servicio. Mi motor quedó como nuevo después de la rectificación. ¡Gracias por su profesionalismo!",
+			name: "Ana Martínez",
+			job: "Mecánica de Autos",
+			avatar: avatar10,
 		},
 	];
 	const $masonryContainer = document.getElementById("masonry-container");
@@ -528,7 +521,7 @@ const METADATA_INFO = {
 		job,
 	}) => `<p class="mb-6 max-w-4xl">"${testimony}"</p>
 <div class="flex row-reverse items-center justify-end w-full gap-x-4">					
-<Avatar avatar=${avatar} name=${name}/>
+<img src=${avatar.src} alt="Profile pic from ${name}" class="w-10 aspect-square rounded-full object-cover" />
 <div class="flex flex-col">
 <span class="text-stone-300">${name}</span>
 <span>${job}</span>
