@@ -1,0 +1,16 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+interface Props {
+	avatar: ImageMetadata;
+	name: string;
+}
+
+const { avatar, name } = Astro.props as Props;
+---
+
+<Image
+	src={avatar}
+	alt={`Profile pic from ${name}`}
+	class="w-10 aspect-square rounded-full"
+/>
