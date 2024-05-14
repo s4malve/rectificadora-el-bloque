@@ -381,27 +381,6 @@ const METADATA_INFO = {
 					}
 				</ul>
 			</section>
-			<section class="w-full flex flex-col items-center" id="testimonials">
-				<h2 class="text-5xl font-semibold mb-16 text-center">
-					Qué dicen nuestros clientes
-				</h2>
-				<ul
-					class="flex items-center gap-x-5 gap-y-3 mb-24 justify-center w-full max-w-3xl flex-wrap"
-				>
-					{
-						TESTIMONIALS_PEOPLE.map(({ avatar, name }) => (
-							<li>
-								<Avatar avatar={avatar} name={name} />
-							</li>
-						))
-					}
-				</ul>
-				<ul
-					id="masonry-container"
-					class="flex flex-col lg:flex-row gap-4 max-w-4xl"
-				>
-				</ul>
-			</section>
 			<section
 				class="grid grid-rows-2 lg:grid-cols-2 lg:grid-rows-1 gap-x-10 w-full mt-10 items-center"
 				id="contact-us"
@@ -434,6 +413,30 @@ const METADATA_INFO = {
 						}
 					</ul>
 				</div>
+			</section>
+			<section
+				class="w-full flex flex-col items-center pt-10"
+				id="testimonials"
+			>
+				<h2 class="text-5xl font-semibold mb-16 text-center">
+					Qué dicen nuestros clientes
+				</h2>
+				<ul
+					class="flex items-center gap-x-5 gap-y-3 mb-24 justify-center w-full max-w-3xl flex-wrap"
+				>
+					{
+						TESTIMONIALS_PEOPLE.map(({ avatar, name }) => (
+							<li>
+								<Avatar avatar={avatar} name={name} />
+							</li>
+						))
+					}
+				</ul>
+				<ul
+					id="masonry-container"
+					class="flex flex-col lg:flex-row gap-4 max-w-4xl"
+				>
+				</ul>
 			</section>
 		</main>
 		<footer
