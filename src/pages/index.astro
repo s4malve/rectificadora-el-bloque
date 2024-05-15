@@ -4,6 +4,9 @@ import Button from "../components/button.astro";
 import Logo from "../components/logo.astro";
 import Avatar from "../components/avatar.astro";
 
+import TiktokIcon from "../components/icons/tiktok.astro";
+import FacebookIcon from "../components/icons/facebook.astro";
+import InstagramIcon from "../components/icons/instagram.astro";
 import WhatsappIcon from "../components/icons/whatsapp.astro";
 import LocationIcon from "../components/icons/location.astro";
 import PhoneIcon from "../components/icons/phone.astro";
@@ -53,6 +56,9 @@ const BUSINESS_INFO = {
 };
 const LINKS = {
 	whatsapp: `https://wa.me/${BUSINESS_INFO.phone.raw}`,
+	facebook: "https://facebook.com/",
+	instagram: "https://instagram.com/",
+	tiktok: "https://tiktok.com/",
 	googleMaps: "",
 };
 const NAV_LINKS = [
@@ -164,6 +170,29 @@ const CONTACT_INFO = [
 		title: BUSINESS_INFO.phone.formatted,
 		icon: PhoneIcon,
 		url: `tel:${BUSINESS_INFO.phone.raw}`,
+	},
+];
+
+const SOCIAL_MEDIA = [
+	{
+		icon: WhatsappIcon,
+		name: "WhatsApp",
+		url: LINKS.whatsapp,
+	},
+	{
+		icon: FacebookIcon,
+		name: "Facebook",
+		url: LINKS.facebook,
+	},
+	{
+		icon: TiktokIcon,
+		name: "TikTok",
+		url: LINKS.tiktok,
+	},
+	{
+		icon: InstagramIcon,
+		name: "Instagram",
+		url: LINKS.instagram,
 	},
 ];
 
@@ -395,16 +424,52 @@ const METADATA_INFO = {
 				>
 				</ul>
 			</section>
+			<section
+				class="my-20 py-16 text-center flex flex-col items-center bg-stone-100 text-stone-950 rounded-xl w-full"
+			>
+				<h2 class="font-semibold text-5xl mb-4">
+					Toma acción: Programa una cita ahora
+				</h2>
+				<p class="mb-6">
+					¡Nuestros expertos en motores están aquí para ayudarte! Agenda ahora y
+					deja que nos ocupemos de tu motor.
+				</p>
+				<Button style="secondary" href={LINKS.whatsapp}>Agenda tu cita</Button>
+			</section>
 		</main>
 		<footer
-			class="bg-stone-100 text-stone-950 py-10 px-8 lg:px-10 lg:py-12 rounded-xl w-full mt-20 flex items-center justify-between flex-col gap-y-16 lg:flex-row"
+			class="rounded-xl
+					w-full
+					flex
+					items-center
+					justify-between
+					flex-col gap-y-20"
 		>
-			<div class="max-w-sm">
-				<Logo style="secondary" />
-				<p class="mt-4 text-stone-700">
-					Expertos en mantener tu motor en perfecto estado de funcionamiento.
-				</p>
+			<div class="flex items-center justify-between w-full">
+				<div class="max-w-80 flex flex-col gap-y-4 items-start">
+					<Logo />
+					<p class="text-stone-300">
+						Expertos en mantener tu motor en perfecto estado de funcionamiento.
+					</p>
+				</div>
+				<ul class="flex gap-x-4">
+					{
+						SOCIAL_MEDIA.map(({ icon: Icon, name, url }) => (
+							<li>
+								<Button
+									href={url}
+									position="start"
+									size="icon"
+									style="tertiary"
+								>
+									<Icon size={24} />
+								</Button>
+							</li>
+						))
+					}
+				</ul>
 			</div>
+
 			<ul class="flex items-center gap-6 flex-col lg:flex-row">
 				{
 					NAV_LINKS.map(({ label, path }) => {

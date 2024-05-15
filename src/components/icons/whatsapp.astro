@@ -1,7 +1,14 @@
+---
+interface Props {
+	size?: number;
+}
+const { size = 32 } = Astro.props as Props;
+---
+
 <svg
+	height={size}
+	width={size}
 	xmlns="http://www.w3.org/2000/svg"
-	width="32"
-	height="32"
 	viewBox="0 0 24 24"
 	style="enable-background:new 0 0 512 512"
 	xml:space="preserve"
