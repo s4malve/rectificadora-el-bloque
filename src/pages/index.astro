@@ -1,8 +1,10 @@
 ---
+import { BUSINESS_INFO, LINKS } from "../utils.ts";
 import NavLink from "../components/nav-link.astro";
 import Button from "../components/button.astro";
 import Logo from "../components/logo.astro";
 import Avatar from "../components/avatar.astro";
+import ServicesTab from "../components/services-tab.tsx";
 
 import TiktokIcon from "../components/icons/tiktok.astro";
 import FacebookIcon from "../components/icons/facebook.astro";
@@ -12,14 +14,6 @@ import LocationIcon from "../components/icons/location.astro";
 import PhoneIcon from "../components/icons/phone.astro";
 
 import googleMapsImg from "../assets/maps.png";
-import motor1 from "../assets/motor-1.jpg";
-import motor2 from "../assets/motor-2.jpg";
-import motor3 from "../assets/motor-3.jpg";
-import motor4 from "../assets/motor-4.jpg";
-import motor5 from "../assets/motor-5.jpg";
-import motor6 from "../assets/motor-6.jpg";
-import motor7 from "../assets/motor-7.jpg";
-import motor8 from "../assets/motor-8.jpg";
 
 import avatar1 from "../assets/avatar-1.avif";
 import avatar2 from "../assets/avatar-2.avif";
@@ -44,88 +38,12 @@ import avatar20 from "../assets/avatar-20.avif";
 import avatar21 from "../assets/avatar-21.avif";
 import { Image } from "astro:assets";
 
-const BUSINESS_INFO = {
-	name: "Rectificadora el bloque",
-	phone: {
-		raw: "+573176478704",
-		formatted: "+57 317 647 8704",
-	},
-	address: {
-		formatted: "Cra 23 #10 - 45 / Bucaramanga Colombia",
-	},
-};
-const LINKS = {
-	whatsapp: `https://wa.me/${BUSINESS_INFO.phone.raw}`,
-	facebook: "https://facebook.com/",
-	instagram: "https://instagram.com/",
-	tiktok: "https://tiktok.com/",
-	googleMaps: "",
-};
 const NAV_LINKS = [
 	{ path: "", label: "Inicio" },
 	{ path: "#about-us", label: "Sobre Nosotros" },
 	{ path: "#services", label: "Servicios" },
 	{ path: "#testimonials", label: "Testimonios" },
 	{ path: "#contact-us", label: "Contáctanos" },
-];
-
-const SERVICES = [
-	{
-		img: motor1,
-		name: "rectificacion-bloque",
-		title: "Rectificación de bloque",
-		description:
-			"Reparación de los bloques del motor para asegurar que estén perfectamente lisos y aptos para un rendimiento óptimo",
-	},
-	{
-		img: motor2,
-		name: "",
-		title: "Rectificación de cigüeñales",
-		description:
-			"Renovación de cigüeñales, un componente crucial del motor, para que funcionen como nuevos",
-	},
-	{
-		img: motor3,
-		name: "",
-		title: "Torno",
-		description:
-			"Maquinado de precisión para dar forma o afinar piezas del motor para un mejor ajuste y funcionamiento.",
-	},
-	{
-		img: motor4,
-		name: "",
-		title: "Prueba hidrostática",
-		description:
-			"Verificación de piezas del motor en busca de fugas o debilidades al someterlas a presión de agua, garantizando seguridad y confiabilidad.",
-	},
-	{
-		img: motor5,
-		name: "",
-		title: "Sentada culatas",
-		description:
-			"Verificación, ajuste o mejora del ajuste de las culatas, una parte crítica del motor",
-	},
-	{
-		img: motor6,
-		name: "",
-		title: "Armada y desarmada culatas",
-		description:
-			"Ensamblaje y desmontaje de culatas, incluyendo válvulas y otros componentes, como parte del mantenimiento o reparación del motor",
-	},
-	{
-		img: motor7,
-		name: "",
-		title: "Enderezada culatas",
-		description:
-			"Rectificación de las culatas para corregir cualquier deformación o distorsión, garantizando un sellado y rendimiento adecuados.",
-	},
-	{
-		img: motor8,
-		name: "",
-		title: "Cepillado culatas",
-		description:
-			"Alisado y refinamiento de la superficie de las culatas para mejorar su funcionalidad y sellado",
-	},
 ];
 
 const TESTIMONIALS_PEOPLE = [
@@ -339,33 +257,7 @@ const METADATA_INFO = {
 						torno, pruebas hidrostáticas y más para culatas.
 					</p>
 				</header>
-				<ul
-					class="grid lg:grid-cols-[repeat(auto-fill,minmax(342px,_1fr))] gap-8 gap-x-10"
-				>
-					{
-						SERVICES.map(({ img, title, description }) => (
-							<li>
-								<article class="h-full grid grid-flow-row">
-									<Image
-										src={img}
-										alt={title}
-										class="mb-6 min-h-[372px] lg:h-96 object-cover rounded-lg w-full"
-										loading="lazy"
-									/>
-									<h3 class="mb-4 font-semibold text-xl">{title}</h3>
-									<p class="mb-5">{description}</p>
-									<Button
-										href={`${LINKS.whatsapp}?text=${encodeURI(`Hola. Me gustaría agendar una cita de: ${title}`)}`}
-										style="secondary"
-										className="h-fit self-end"
-									>
-										Agendar este servicio
-									</Button>
-								</article>
-							</li>
-						))
-					}
-				</ul>
+				<ServicesTab client:visible />
 			</section>
 			<section
 				class="grid grid-rows-2 lg:grid-cols-2 lg:grid-rows-1 gap-x-10 w-full mt-10 items-center"
@@ -454,7 +346,7 @@ const METADATA_INFO = {
 				</div>
 				<ul class="flex gap-x-4">
 					{
-						SOCIAL_MEDIA.map(({ icon: Icon, name, url }) => (
+						SOCIAL_MEDIA.map(({ icon: Icon, url }) => (
 							<li>
 								<Button
 									href={url}
