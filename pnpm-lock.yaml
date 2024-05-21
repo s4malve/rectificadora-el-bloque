@@ -54,6 +54,9 @@ importers:
         specifier: ^5.4.5
         version: 5.4.5
     devDependencies:
+      embla-carousel:
+        specifier: ^8.1.3
+        version: 8.1.3
       prettier:
         specifier: ^3.2.5
         version: 3.2.5
