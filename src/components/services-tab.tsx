@@ -30,15 +30,15 @@ const categories = [
 	},
 	{
 		images: [service3, service4, service5],
-		name: "rectificación-de-cigueñales",
-		title: "Rectificación de cigüeñales",
+		name: "npr-2000",
+		title: "NPR 2000",
 		description:
 			"Renovación de cigüeñales, un componente crucial del motor, para que funcionen como nuevos",
 	},
 	{
 		images: [service6, service7, service6],
-		name: "torno",
-		title: "Torno",
+		name: "spark-gt",
+		title: "SPARK GT",
 		description:
 			"Maquinado de precisión para dar forma o afinar piezas del motor para un mejor ajuste y funcionamiento.",
 	},
@@ -92,7 +92,7 @@ export default function ServicesTab() {
 							key={idx}
 							className="flex items-center gap-x-2 font-semibold p-2 border rounded-xl border-stone-950 data-[selected]:bg-stone-950 data-[selected]:text-stone-100 transition-colors"
 						>
-							<img src={images[0].src} alt={`Referencia de ${title}`} className='aspect-video h-16 rounded-xl object-cover' />
+							<img src={images[0].src} alt={`Referencia de ${title}`} className='aspect-video h-32 rounded-xl object-cover' />
 							<span>
 								{title}
 							</span>
@@ -102,11 +102,11 @@ export default function ServicesTab() {
 				<TabPanels className="mt-12">
 					{categories.map(({ images, title, description, name }) => (
 						<TabPanel key={name}>
-							<Slider emblaRef={emblaRef1} emblaApi={emblaApi1} className="lg:h-96">
+							<Slider emblaRef={emblaRef1} emblaApi={emblaApi1} className="lg:h-[480px]">
 								{images.map((img, idx) => (
 									<Slide key={idx}>
 										<button type="button" onClick={() => handleExpandImage({ title, images, idx })} className="w-full">
-											<SlideImage src={img.src} title={title} className="lg:h-96" />
+											<SlideImage src={img.src} title={title} className="lg:h-[480px]" />
 										</button>
 									</Slide>
 								))}
