@@ -119,7 +119,7 @@ const METADATA_INFO = {
 	description:
 		"Expertos en motores: soluciones precisas para bloques, cigüeñales y más. Confía en nuestro equipo para un mantenimiento confiable.",
 	url: Astro.site,
-	image: "/meta-cover.png",
+	image: new URL("/meta-cover.png", Astro.url),
 };
 ---
 
@@ -163,14 +163,6 @@ const METADATA_INFO = {
 	<body
 		class="bg-stone-950 text-stone-100 p-2 min-[320px]:p-3 lg:p-8 min-h-screen flex flex-col w-full items-center"
 	>
-		<link itemprop="thumbnailUrl" href={METADATA_INFO.image} />
-		<span
-			itemprop="thumbnail"
-			itemscope
-			itemtype="http://schema.org/ImageObject"
-		>
-			<link itemprop="url" href={METADATA_INFO.image} />
-		</span>
 		<header
 			class="px-4 lg:px-10 flex flex-col gap-y-10 items-center w-full bg-header-motor rounded-xl min-h-[800px] bg-no-repeat bg-cover"
 		>
