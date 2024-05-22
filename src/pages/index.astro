@@ -160,7 +160,7 @@ const METADATA_INFO = {
 		<meta property="twitter:image" content={METADATA_INFO.image} />
 	</head>
 	<body
-		class="bg-stone-950 text-stone-100 p-3 lg:p-8 min-h-screen flex flex-col w-full items-center"
+		class="bg-stone-950 text-stone-100 p-2 min-[320px]:p-3 lg:p-8 min-h-screen flex flex-col w-full items-center"
 	>
 		<header
 			class="px-4 lg:px-10 flex flex-col gap-y-10 items-center w-full bg-header-motor rounded-xl min-h-[800px] bg-no-repeat bg-cover"
@@ -260,30 +260,35 @@ const METADATA_INFO = {
 				<ServicesTab client:visible />
 			</section>
 			<section
-				class="grid grid-rows-2 lg:grid-cols-2 lg:grid-rows-1 gap-x-10 w-full mt-10 items-center"
+				class="flex items-center justify-center flex-wrap gap-10 w-full mt-10 items-center"
 				id="contact-us"
 			>
 				<Image
 					src={googleMapsImg}
-					class="w-full"
+					class="w-full max-w-xl flex"
 					alt="A gooogle maps view with the pin on the business direction"
 				/>
-				<div class="w- flex flex-col gap-y-10">
+				<div class="flex flex-col gap-y-10">
 					<div class="flex flex-col gap-y-3">
-						<h2 class="font-semibold text-5xl">Contáctanos</h2>
+						<h2 class="font-semibold text-3xl lg:text-5xl">Contáctanos</h2>
 						<p>Agenda tu cita y conoce por qué nuestro servicio es el mejor.</p>
 					</div>
 					<ul class="flex flex-col gap-y-4">
 						{
 							CONTACT_INFO.map(({ icon: Icon, label, title, url }) => (
 								<li>
-									<Button href={url} position="start" style="tertiary">
-										<div class="flex-nowrap">
+									<Button
+										className="!text-wrap w-full"
+										href={url}
+										position="start"
+										style="tertiary"
+									>
+										<div class="">
 											<Icon />
 										</div>
 										<div class="">
 											<h4 class="text-stone-300">{label}</h4>
-											<p class="text-xl font-semibold">{title}</p>
+											<p class="lg:text-xl font-semibold">{title}</p>
 										</div>
 									</Button>
 								</li>
@@ -317,9 +322,9 @@ const METADATA_INFO = {
 				</ul>
 			</section>
 			<section
-				class="my-20 py-16 text-center flex flex-col items-center bg-stone-100 text-stone-950 rounded-xl w-full"
+				class="px-4 mt-5 mb-20 lg:my-20 py-10 lg:py-16 text-center flex flex-col items-center bg-stone-100 text-stone-950 rounded-xl w-full"
 			>
-				<h2 class="font-semibold text-5xl mb-4">
+				<h2 class="font-semibold text-2xl lg:text-5xl mb-4">
 					Toma acción: Programa una cita ahora
 				</h2>
 				<p class="mb-6">
@@ -337,7 +342,7 @@ const METADATA_INFO = {
 					justify-between
 					flex-col gap-y-20"
 		>
-			<div class="flex items-center justify-between w-full">
+			<div class="flex items-center justify-between w-full flex-wrap gap-y-8">
 				<div class="max-w-80 flex flex-col gap-y-4 items-start">
 					<Logo />
 					<p class="text-stone-300">

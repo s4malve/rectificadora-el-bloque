@@ -86,11 +86,11 @@ export default function ServicesTab() {
 	return (
 		<>
 			<TabGroup>
-				<TabList className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4">
+				<TabList className="grid lg:grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4">
 					{categories.map(({ title, images }, idx) => (
 						<Tab
 							key={idx}
-							className="flex items-center gap-x-2 font-semibold p-2 border rounded-xl border-stone-950 data-[selected]:bg-stone-950 data-[selected]:text-stone-100 transition-colors"
+							className="flex items-center gap-x-2 font-semibold p-2 border rounded-xl border-stone-950 data-[selected]:bg-stone-950 data-[selected]:text-stone-100 transition-colors flex-wrap gap-y-4"
 						>
 							<img src={images[0].src} alt={`Referencia de ${title}`} className='aspect-video h-32 rounded-xl object-cover' />
 							<span>
