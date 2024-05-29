@@ -24,20 +24,23 @@ const categories = [
 	{
 		images: [service1, service2, service1],
 		name: "rectificacion-bloque",
-		title: "Rectificación de bloque",
+		type: "Culata en aluminio ",
+		title: "Renault koleos",
 		description:
-			"Reparación de los bloques del motor para asegurar que estén perfectamente lisos y aptos para un rendimiento óptimo",
+			"Esta culata nos llega con 14 milésimas de pulgada torcida en su plenitud, luego de nuestro proceso correctivo quedo con una perfecta planitud para ser usada con su empaque STD",
 	},
 	{
 		images: [service3, service4, service5],
 		name: "npr-2000",
+		type: "Culata en fundición",
 		title: "NPR 2000",
 		description:
-			"Renovación de cigüeñales, un componente crucial del motor, para que funcionen como nuevos",
+			"Esta culata nos llega con 9 milésimas de pulgada torcida en su plenitud, luego de nuestro proceso correctivo quedo con una perfecta planitud para ser usada con su empaque STD",
 	},
 	{
 		images: [service6, service7, service6],
 		name: "spark-gt",
+		type: "Culata en aluminio",
 		title: "SPARK GT",
 		description:
 			"Maquinado de precisión para dar forma o afinar piezas del motor para un mejor ajuste y funcionamiento.",
@@ -87,15 +90,18 @@ export default function ServicesTab() {
 		<>
 			<TabGroup>
 				<TabList className="grid lg:grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4">
-					{categories.map(({ title, images }, idx) => (
+					{categories.map(({ title, images, type }, idx) => (
 						<Tab
 							key={idx}
 							className="flex items-center gap-x-2 font-semibold p-2 border rounded-xl border-stone-950 data-[selected]:bg-stone-950 data-[selected]:text-stone-100 transition-colors flex-wrap gap-y-4"
 						>
 							<img src={images[0].src} alt={`Referencia de ${title}`} className='aspect-video h-32 rounded-xl object-cover' />
-							<span>
-								{title}
-							</span>
+							<div className="flex flex-col items-start ">
+								<span className="opacity-80 text-sm">{type}</span>
+								<h4 className="font-semibold text-xl">
+									{title}
+								</h4>
+							</div>
 						</Tab>
 					))}
 				</TabList>

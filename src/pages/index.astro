@@ -246,22 +246,21 @@ const METADATA_INFO = {
 				class="px-6 py-8 lg:py-16 lg:px-14 rounded-3xl bg-stone-100 text-stone-950 w-full flex flex-col gap-y-16"
 				id="services"
 			>
-				<header
-					class="flex flex-col items-center justify-between gap-x-4 lg:flex-row"
-				>
-					<h2 class="font-semibold text-2xl lg:text-4xl mb-3 max-w-md">
-						Agenda tu Cita con Especialistas en Rectificación y Más
+				<header class="grid grid-cols-1 xl:grid-cols-2 grid-rows-2 gap-y-16">
+					<h2 class="font-semibold text-2xl col-start-1 col-end-3 lg:col-end-2">
+						Salva la culata que dabas por perdida al no poder cepillarla más de
+						lo permitido y tener torcedura por calentamiento
 					</h2>
-					<p class="max-w-md">
-						¡Potencia tu motor con nosotros! Reserva ahora y disfruta de
-						servicios especializados: rectificación de bloques y cigüeñales,
-						torno, pruebas hidrostáticas y más para culatas.
+					<p
+						class="lg:max-w-prose text-2xl col-start-2 row-start-2 justify-self-end"
+					>
+						Contáctanos y dale de nuevo una vida útil a tu culata
 					</p>
 				</header>
 				<ServicesTab client:visible />
 			</section>
 			<section
-				class="flex items-center justify-center flex-wrap gap-10 w-full mt-10 items-center"
+				class="flex items-center justify-center flex-wrap gap-10 w-full mt-10"
 				id="contact-us"
 			>
 				<Image
