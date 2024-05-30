@@ -40,7 +40,6 @@ import { Image } from "astro:assets";
 
 const NAV_LINKS = [
 	{ path: "", label: "Inicio" },
-	{ path: "#about-us", label: "Sobre Nosotros" },
 	{ path: "#services", label: "Servicios" },
 	{ path: "#testimonials", label: "Testimonios" },
 	{ path: "#contact-us", label: "Contáctanos" },
@@ -228,22 +227,9 @@ const METADATA_INFO = {
 				<Button href={LINKS.whatsapp}>Agenda tu cita</Button>
 			</div>
 		</header>
-		<main class="w-full flex flex-col items-center gap-y-10" id="about-us">
+		<main class="w-full flex flex-col items-center gap-y-10">
 			<section
-				class="flex flex-col items-start gap-x-16 gap-y-8 py-20 justify-between w-full max-w-6xl lg:flex-row"
-			>
-				<h2 class="font-semibold text-2xl leading-relaxed text-nowrap">
-					Servicios de Calidad
-				</h2>
-				<p class="max-w-screen-[838px] text-xl lg:text-4xl leading-relaxed">
-					En {BUSINESS_INFO.name}, la calidad es nuestro sello. Desde la
-					rectificación de bloques hasta la montura de culatas, nuestro enfoque
-					es preciso y con nuestra avanzada tecnología garantizan motores
-					impecables y duraderos.
-				</p>
-			</section>
-			<section
-				class="px-6 py-8 lg:py-16 lg:px-14 rounded-3xl bg-stone-100 text-stone-950 w-full flex flex-col gap-y-16"
+				class="px-6 py-8 lg:py-16 lg:px-14 rounded-3xl bg-stone-100 text-stone-950 w-full flex flex-col gap-y-16 mt-16"
 				id="services"
 			>
 				<header class="grid grid-cols-1 xl:grid-cols-2 grid-rows-2 gap-y-16">
