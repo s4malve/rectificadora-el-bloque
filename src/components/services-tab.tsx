@@ -43,7 +43,7 @@ const categories = [
 		type: "Culata en aluminio",
 		title: "SPARK GT",
 		description:
-			"Maquinado de precisión para dar forma o afinar piezas del motor para un mejor ajuste y funcionamiento.",
+			"Esta culata nos llega con 12 milésimas de pulgada torcida en su planitud, luego de nuestro proceso correctivo quedo con una perfecta planitud sin necesidad de ser cepillada y manteniendo su altura original para usar en ella su empaque original",
 	},
 ]
 
