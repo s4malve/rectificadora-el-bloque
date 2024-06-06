@@ -27,7 +27,7 @@ const categories = [
 		type: "Culata en aluminio ",
 		title: "Renault koleos",
 		description:
-			"Esta culata nos llega con 14 milésimas de pulgada torcida en su plenitud, luego de nuestro proceso correctivo quedo con una perfecta planitud para ser usada con su empaque STD",
+			"Esta culata nos llega con 14 milésimas de pulgada torcida en su planitud, luego de nuestro proceso correctivo quedo con una perfecta planitud sin necesidad de ser cepillada y manteniendo su altura original para usar en ella su empaque original",
 	},
 	{
 		images: [service3, service4, service5],
@@ -35,7 +35,7 @@ const categories = [
 		type: "Culata en fundición",
 		title: "NPR 2000",
 		description:
-			"Esta culata nos llega con 9 milésimas de pulgada torcida en su plenitud, luego de nuestro proceso correctivo quedo con una perfecta planitud para ser usada con su empaque STD",
+			"Esta culata nos llega con 9 milésimas de pulgada torcida en su planitud, luego de nuestro proceso correctivo quedo con una perfecta planitud sin necesidad de ser cepillada y manteniendo su altura original para usar en ella su empaque original",
 	},
 	{
 		images: [service6, service7, service6],
