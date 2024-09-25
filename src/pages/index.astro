@@ -225,6 +225,8 @@ const METADATA_INFO = {
 	url: Astro.site,
 	image: new URL("/meta-cover.png", Astro.url),
 };
+
+const absoluteURL = (path: string) => new URL(path, Astro.url);
 ---
 
 <html lang="es" class="scroll-smooth">
@@ -234,12 +236,21 @@ const METADATA_INFO = {
 			rel="icon"
 			type="image/svg+xml"
 			media="(prefers-color-scheme: light)"
-			href="/favicon.svg"
+			sizes="32x32"
+			href={absoluteURL("/favicon.svg")}
 		/>
 		<link
-			href="/favicon-dark.svg"
+			href={absoluteURL("/favicon-dark.svg")}
+			type="image/svg+xml"
 			rel="icon"
+			sizes="32x32"
 			media="(prefers-color-scheme: dark)"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="32x32"
+			type="image/svg+xml"
+			href={absoluteURL("/favicon-dark.svg")}
 		/>
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
