@@ -45,28 +45,133 @@ const NAV_LINKS = [
 	{ path: "#contact-us", label: "Contáctanos" },
 ];
 
-const TESTIMONIALS_PEOPLE = [
-	{ name: "John Smith", avatar: avatar1 },
-	{ name: "Alice Johnson", avatar: avatar2 },
-	{ name: "Michael Brown", avatar: avatar3 },
-	{ name: "Emily Davis", avatar: avatar4 },
-	{ name: "David Wilson", avatar: avatar5 },
-	{ name: "Sarah Martinez", avatar: avatar6 },
-	{ name: "Daniel Anderson", avatar: avatar7 },
-	{ name: "Emma Taylor", avatar: avatar8 },
-	{ name: "Ryan Thomas", avatar: avatar9 },
-	{ name: "Olivia Hernandez", avatar: avatar10 },
-	{ name: "Jacob Moore", avatar: avatar11 },
-	{ name: "Sophia Martin", avatar: avatar12 },
-	{ name: "Matthew Rodriguez", avatar: avatar13 },
-	{ name: "Isabella Lee", avatar: avatar14 },
-	{ name: "Ethan Clark", avatar: avatar15 },
-	{ name: "Mia Walker", avatar: avatar16 },
-	{ name: "Nathan Hall", avatar: avatar17 },
-	{ name: "Ava Allen", avatar: avatar18 },
-	{ name: "Andrew Young", avatar: avatar19 },
-	{ name: "Chloe Lewis", avatar: avatar20 },
-	{ name: "James King", avatar: avatar21 },
+const TESTIMONIALS = [
+	{
+		testimony: "Quisiera expresar mi más sincero agradecimiento por el excelente trabajo realizado en mi motor. La rectificación de bloques y cigüeñales fue impecable, y el resultado final superó todas mis expectativas. No solo lograron devolverle la vida a mi motor, sino que también lo dejaron funcionando de manera más eficiente que nunca. Como ingeniero mecánico, he trabajado con diversos servicios de rectificación en el pasado, pero ninguno ha alcanzado el nivel de profesionalismo y calidad que encontré aquí. Recomiendo ampliamente este servicio a todos los entusiastas de los motores.",
+		name: "Diego Ramírez",
+		job: "Ingeniero Mecánico",
+		avatar: avatar1,
+	},
+	{
+		testimony: "El servicio de torno que recibí fue simplemente excepcional. Desde el primer contacto hasta la entrega final, todo fue manejado con un profesionalismo impecable. La precisión y calidad del trabajo realizado en mi motor son evidentes, y estoy extremadamente satisfecho con los resultados.",
+		name: "Laura Fernández",
+		job: "Dueña de Taller Mecánico",
+		avatar: avatar2,
+	},
+	{
+		testimony: "La atención al cliente que recibí durante las pruebas hidrostáticas fue excepcional. Desde el momento en que contacté con el equipo hasta la finalización del proceso, me sentí completamente respaldado y bien atendido.",
+		name: "Daniel Gómez",
+		job: "Conductor de Transporte de Carga",
+		avatar: avatar3,
+	},
+	{
+		testimony: "El trabajo de rectificación realizado en mi bloque fue más allá de mis expectativas. La atención al detalle y la precisión con la que se llevó a cabo el proceso son dignas de elogio.",
+		name: "Carlos Rodríguez",
+		job: "Mecánico Automotriz",
+		avatar: avatar4,
+	},
+	{
+		testimony: "Me quedé impresionado con la calidad del servicio de torno que recibí. Todo el proceso fue rápido y eficiente, y el resultado final superó mis expectativas. Definitivamente volveré a utilizar este servicio en el futuro.",
+		name: "Sofía López",
+		job: "Aficionada a la Mecánica",
+		avatar: avatar5,
+	},
+	{
+		testimony: "La atención al cliente que recibí durante las pruebas hidrostáticas fue excepcional. Desde el primer contacto hasta la entrega final, todo fue manejado con un profesionalismo impecable.",
+		name: "Luis González",
+		job: "Piloto de Carreras",
+		avatar: avatar6,
+	},
+	{
+		testimony: "El equipo demostró un gran profesionalismo en las pruebas hidrostáticas. ¡Increíble trabajo!",
+		name: "Jorge Rodríguez",
+		job: "Ingeniero Naval",
+		avatar: avatar7,
+	},
+	{
+		testimony: "El servicio de rectificación de bloques y cigüeñales fue excepcional. El motor de mi vehículo ahora funciona mejor que nunca. ¡Gracias!",
+		name: "María Torres",
+		job: "Dueña de Auto Lavado",
+		avatar: avatar8,
+	},
+	{
+		testimony: "Estoy muy contento con el servicio de montaje hasta el cepillado. El equipo fue muy profesional y el resultado final fue excelente. ¡Lo recomiendo ampliamente!",
+		name: "Roberto Pérez",
+		job: "Entusiasta de los Motores",
+		avatar: avatar9,
+	},
+	{
+		testimony: "Excelente servicio. Mi motor quedó como nuevo después de la rectificación. ¡Gracias por su profesionalismo!",
+		name: "Ana Martínez",
+		job: "Mecánica de Autos",
+		avatar: avatar10,
+	},
+	{
+		testimony: "",
+		name: "Santiago Gómez",
+		job: "",
+		avatar: avatar11,
+	},
+	{
+		testimony: "",
+		name: "Juan David Pérez",
+		job: "",
+		avatar: avatar12,
+	},
+	{
+		testimony: "",
+		name: "Valentina Rodríguez",
+		job: "",
+		avatar: avatar13,
+	},
+	{
+		testimony: "",
+		name: "Mariana Torres",
+		job: "",
+		avatar: avatar14,
+	},
+	{
+		testimony: "",
+		name: "Natalia Ramírez",
+		job: "",
+		avatar: avatar15,
+	},
+	{
+		testimony: "",
+		name: "Camilo Martínez",
+		job: "",
+		avatar: avatar16,
+	},
+	{
+		testimony: "",
+		name: "Laura Morales",
+		job: "",
+		avatar: avatar17,
+	},
+	{
+		testimony: "",
+		name: "Andrés Herrera",
+		job: "",
+		avatar: avatar18,
+	},
+	{
+		testimony: "",
+		name: "Mateo Vargas",
+		job: "",
+		avatar: avatar19,
+	},
+	{
+		testimony: "",
+		name: "Daniel Castillo",
+		job: "",
+		avatar: avatar20,
+	},
+	{
+		testimony: "",
+		name: "Sofía Ríos",
+		job: "",
+		avatar: avatar21,
+	},
 ];
 
 const CONTACT_INFO = [
@@ -148,14 +253,24 @@ const METADATA_INFO = {
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={METADATA_INFO.url} />
 		<meta property="og:title" content={METADATA_INFO.title} />
-		<meta property="og:description" content={METADATA_INFO.description} />
-		<meta property="og:image" itemprop="image" content={METADATA_INFO.image} />
+		<meta
+			property="og:description"
+			content={METADATA_INFO.description}
+		/>
+		<meta
+			property="og:image"
+			itemprop="image"
+			content={METADATA_INFO.image}
+		/>
 
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
 		<meta property="twitter:url" content={METADATA_INFO.url} />
 		<meta property="twitter:title" content={METADATA_INFO.title} />
-		<meta property="twitter:description" content={METADATA_INFO.description} />
+		<meta
+			property="twitter:description"
+			content={METADATA_INFO.description}
+		/>
 		<meta property="twitter:image" content={METADATA_INFO.image} />
 	</head>
 
@@ -165,11 +280,17 @@ const METADATA_INFO = {
 		<header
 			class="px-4 lg:px-10 flex flex-col gap-y-10 items-center w-full bg-header-motor rounded-xl min-h-[800px] bg-no-repeat bg-cover"
 		>
-			<nav class="flex items-center justify-between py-10 w-full relative">
+			<nav
+				class="flex items-center justify-between py-10 w-full relative"
+			>
 				<a href="#" class="mr-10">
 					<Logo />
 				</a>
-				<button class="xl:hidden" data-hamburger aria-expanded="false">
+				<button
+					class="xl:hidden"
+					data-hamburger
+					aria-expanded="false"
+				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"
@@ -181,7 +302,8 @@ const METADATA_INFO = {
 						<path
 							stroke-linecap="round"
 							stroke-linejoin="round"
-							d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+							d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+						></path>
 					</svg>
 				</button>
 				<div
@@ -192,39 +314,67 @@ const METADATA_INFO = {
 						class="flex flex-col xl:flex-row items-center gap-x-2 rounded-lg xl:rounded-full text-stone-950 xl:text-stone-100 xl:bg-stone-100/10 p-2"
 					>
 						{
-							NAV_LINKS.map(({ label, path }) => {
-								const isActive = Astro.url.hash === path;
+							NAV_LINKS.map(
+								({
+									label,
+									path,
+								}) => {
+									const isActive =
+										Astro
+											.url
+											.hash ===
+										path;
 
-								return (
-									<li>
-										<NavLink href={path} isActive={isActive}>
-											{label}
-										</NavLink>
-									</li>
-								);
-							})
+									return (
+										<li>
+											<NavLink
+												href={
+													path
+												}
+												isActive={
+													isActive
+												}
+											>
+												{
+													label
+												}
+											</NavLink>
+										</li>
+									);
+								},
+							)
 						}
 					</ul>
-					<Button href={LINKS.whatsapp} className="hidden xl:flex"
+					<Button
+						href={LINKS.whatsapp}
+						className="hidden xl:flex"
 						>Agenda tu cita</Button
 					>
 					<Button
 						href={LINKS.whatsapp}
 						className="xl:hidden w-fit"
-						style="secondary">Agenda tu cita</Button
+						style="secondary"
+						>Agenda tu cita</Button
 					>
 				</div>
 			</nav>
-			<div class="text-center flex items-center flex-col max-w-[849px]">
+			<div
+				class="text-center flex items-center flex-col max-w-[849px]"
+			>
 				<h1 class="font-bold text-3xl lg:text-6xl mb-6">
-					Rectificadora de culatas de motor de aluminio y acero
+					Rectificadora de culatas de motor de
+					aluminio y acero
 				</h1>
 				<p class="mb-8 max-w-prose lg:text-lg">
-					Especialistas en motores: Rectificación de bloques y cigüeñales,
-					torno, pruebas hidrostáticas y una gama completa de servicios para
-					culatas, desde el montaje hasta el cepillado.
+					Especialistas en motores: Rectificación
+					de bloques y cigüeñales, torno, pruebas
+					hidrostáticas y una gama completa de
+					servicios para culatas, desde el montaje
+					hasta el cepillado.
 				</p>
-				<Button href={LINKS.whatsapp}>Agenda tu cita</Button>
+				<Button href={LINKS.whatsapp}
+					>Agenda tu cita</Button
+				>
 			</div>
 		</header>
 		<main class="w-full flex flex-col items-center gap-y-10">
@@ -232,14 +382,25 @@ const METADATA_INFO = {
 				class="px-6 py-8 lg:py-16 lg:px-14 rounded-3xl bg-stone-100 text-stone-950 w-full flex flex-col gap-y-16 mt-16"
 				id="services"
 			>
-				<header class="grid grid-cols-1 xl:grid-cols-2 grid-rows-2 gap-y-16">
-					<h2 class="font-semibold text-2xl col-start-1 col-end-3 lg:col-end-2">
-						Salva la culata que dabas por perdida al no poder cepillarla más de lo permitido y tener torcedura por calentamiento Cualquier culata torcida  la dejamos en cero para empaque original
+				<header
+					class="grid grid-cols-1 xl:grid-cols-2 grid-rows-2 gap-y-16"
+				>
+					<h2
+						class="font-semibold text-2xl col-start-1 col-end-3 lg:col-end-2"
+					>
+						Salva la culata que dabas por
+						perdida al no poder cepillarla
+						más de lo permitido y tener
+						torcedura por calentamiento
+						Cualquier culata torcida la
+						dejamos en cero para
+						empaque original
 					</h2>
 					<p
 						class="lg:max-w-prose text-2xl col-start-2 row-start-2 justify-self-end"
 					>
-						Contáctanos y dale de nuevo una vida útil a tu culata
+						Contáctanos y dale de nuevo una
+						vida útil a tu culata
 					</p>
 				</header>
 				<ServicesTab client:visible />
@@ -255,29 +416,54 @@ const METADATA_INFO = {
 				/>
 				<div class="flex flex-col gap-y-10">
 					<div class="flex flex-col gap-y-3">
-						<h2 class="font-semibold text-3xl lg:text-5xl">Contáctanos</h2>
-						<p>Agenda tu cita y conoce por qué nuestro servicio es el mejor.</p>
+						<h2
+							class="font-semibold text-3xl lg:text-5xl"
+						>
+							Contáctanos
+						</h2>
+						<p>
+							Agenda tu cita y conoce
+							por qué nuestro servicio
+							es el mejor.
+						</p>
 					</div>
 					<ul class="flex flex-col gap-y-4">
 						{
-							CONTACT_INFO.map(({ icon: Icon, label, title, url }) => (
-								<li>
-									<Button
-										className="!text-wrap w-full"
-										href={url}
-										position="start"
-										style="tertiary"
-									>
-										<div class="">
-											<Icon />
-										</div>
-										<div class="">
-											<h4 class="text-stone-300">{label}</h4>
-											<p class="lg:text-xl font-semibold">{title}</p>
-										</div>
-									</Button>
-								</li>
-							))
+							CONTACT_INFO.map(
+								({
+									icon: Icon,
+									label,
+									title,
+									url,
+								}) => (
+									<li>
+										<Button
+											className="!text-wrap w-full"
+											href={
+												url
+											}
+											position="start"
+											style="tertiary"
+										>
+											<div class="">
+												<Icon />
+											</div>
+											<div class="">
+												<h4 class="text-stone-300">
+													{
+														label
+													}
+												</h4>
+												<p class="lg:text-xl font-semibold">
+													{
+														title
+													}
+												</p>
+											</div>
+										</Button>
+									</li>
+								),
+							)
 						}
 					</ul>
 				</div>
@@ -286,18 +472,29 @@ const METADATA_INFO = {
 				class="w-full flex flex-col items-center pt-10"
 				id="testimonials"
 			>
-				<h2 class="text-5xl font-semibold mb-16 text-center">
+				<h2
+					class="text-5xl font-semibold mb-16 text-center"
+				>
 					Qué dicen nuestros clientes
 				</h2>
 				<ul
 					class="flex items-center gap-x-5 gap-y-3 mb-24 justify-center w-full max-w-3xl flex-wrap"
 				>
 					{
-						TESTIMONIALS_PEOPLE.map(({ avatar, name }) => (
-							<li>
-								<Avatar avatar={avatar} name={name} />
-							</li>
-						))
+						TESTIMONIALS.map(
+							({ avatar, name }) => (
+								<li>
+									<Avatar
+										avatar={
+											avatar
+										}
+										name={
+											name
+										}
+									/>
+								</li>
+							),
+						)
 					}
 				</ul>
 				<ul
@@ -309,14 +506,19 @@ const METADATA_INFO = {
 			<section
 				class="px-4 mt-5 mb-20 lg:my-20 py-10 lg:py-16 text-center flex flex-col items-center bg-stone-100 text-stone-950 rounded-xl w-full"
 			>
-				<h2 class="font-semibold text-2xl lg:text-5xl mb-4">
+				<h2
+					class="font-semibold text-2xl lg:text-5xl mb-4"
+				>
 					Toma acción: Programa una cita ahora
 				</h2>
 				<p class="mb-6">
-					¡Nuestros expertos en motores están aquí para ayudarte! Agenda ahora y
-					deja que nos ocupemos de tu motor.
+					¡Nuestros expertos en motores están aquí
+					para ayudarte! Agenda ahora y deja que
+					nos ocupemos de tu motor.
 				</p>
-				<Button style="secondary" href={LINKS.whatsapp}>Agenda tu cita</Button>
+				<Button style="secondary" href={LINKS.whatsapp}
+					>Agenda tu cita</Button
+				>
 			</section>
 		</main>
 		<footer
@@ -327,40 +529,66 @@ const METADATA_INFO = {
 					justify-between
 					flex-col gap-y-20"
 		>
-			<div class="flex items-center justify-between w-full flex-wrap gap-y-8">
-				<div class="max-w-80 flex flex-col gap-y-4 items-start">
+			<div
+				class="flex items-center justify-between w-full flex-wrap gap-y-8"
+			>
+				<div
+					class="max-w-80 flex flex-col gap-y-4 items-start"
+				>
 					<Logo />
 					<p class="text-stone-300">
-						Expertos en mantener tu motor en perfecto estado de funcionamiento.
+						Expertos en mantener tu motor en
+						perfecto estado de
+						funcionamiento.
 					</p>
 				</div>
 				<ul class="flex gap-x-4">
 					{
-						SOCIAL_MEDIA.map(({ icon: Icon, url }) => (
-							<li>
-								<Button
-									href={url}
-									position="start"
-									size="icon"
-									style="tertiary"
-								>
-									<Icon size={24} />
-								</Button>
-							</li>
-						))
+						SOCIAL_MEDIA.map(
+							({
+								icon: Icon,
+								url,
+							}) => (
+								<li>
+									<Button
+										href={
+											url
+										}
+										position="start"
+										size="icon"
+										style="tertiary"
+									>
+										<Icon
+											size={
+												24
+											}
+										/>
+									</Button>
+								</li>
+							),
+						)
 					}
 				</ul>
 			</div>
 
-			<ul class="flex items-center gap-6 flex-col lg:flex-row">
+			<ul
+				class="flex items-center gap-6 flex-col lg:flex-row"
+			>
 				{
 					NAV_LINKS.map(({ label, path }) => {
-						const isActive = Astro.url.hash === path;
+						const isActive =
+							Astro.url.hash === path;
 						return (
 							<li>
 								<a
-									href={path}
-									class:list={[isActive ? "font-semibold" : "font-normal"]}
+									href={
+										path
+									}
+									class:list={[
+										isActive
+											? "font-semibold"
+											: "font-normal",
+									]}
 								>
 									{label}
 								</a>
@@ -375,90 +603,10 @@ const METADATA_INFO = {
 <script
 	is:inline
 	define:vars={{
-		avatar1,
-		avatar2,
-		avatar3,
-		avatar4,
-		avatar5,
-		avatar6,
-		avatar7,
-		avatar8,
-		avatar9,
-		avatar10,
+		allTestimonials: TESTIMONIALS,
 	}}
 >
-	const TESTIMONIALS = [
-		{
-			testimony:
-				"Quisiera expresar mi más sincero agradecimiento por el excelente trabajo realizado en mi motor. La rectificación de bloques y cigüeñales fue impecable, y el resultado final superó todas mis expectativas. No solo lograron devolverle la vida a mi motor, sino que también lo dejaron funcionando de manera más eficiente que nunca. Como ingeniero mecánico, he trabajado con diversos servicios de rectificación en el pasado, pero ninguno ha alcanzado el nivel de profesionalismo y calidad que encontré aquí. Recomiendo ampliamente este servicio a todos los entusiastas de los motores.",
-			name: "Diego Ramírez",
-			job: "Ingeniero Mecánico",
-			avatar: avatar1,
-		},
-		{
-			testimony:
-				"El servicio de torno que recibí fue simplemente excepcional. Desde el primer contacto hasta la entrega final, todo fue manejado con un profesionalismo impecable. La precisión y calidad del trabajo realizado en mi motor son evidentes, y estoy extremadamente satisfecho con los resultados.",
-			name: "Laura Fernández",
-			job: "Dueña de Taller Mecánico",
-			avatar: avatar2,
-		},
-		{
-			testimony:
-				"La atención al cliente que recibí durante las pruebas hidrostáticas fue excepcional. Desde el momento en que contacté con el equipo hasta la finalización del proceso, me sentí completamente respaldado y bien atendido.",
-			name: "Daniel Gómez",
-			job: "Conductor de Transporte de Carga",
-			avatar: avatar3,
-		},
-		{
-			testimony:
-				"El trabajo de rectificación realizado en mi bloque fue más allá de mis expectativas. La atención al detalle y la precisión con la que se llevó a cabo el proceso son dignas de elogio.",
-			name: "Carlos Rodríguez",
-			job: "Mecánico Automotriz",
-			avatar: avatar4,
-		},
-		{
-			testimony:
-				"Me quedé impresionado con la calidad del servicio de torno que recibí. Todo el proceso fue rápido y eficiente, y el resultado final superó mis expectativas. Definitivamente volveré a utilizar este servicio en el futuro.",
-			name: "Sofía López",
-			job: "Aficionada a la Mecánica",
-			avatar: avatar5,
-		},
-		{
-			testimony:
-				"La atención al cliente que recibí durante las pruebas hidrostáticas fue excepcional. Desde el primer contacto hasta la entrega final, todo fue manejado con un profesionalismo impecable.",
-			name: "Luis González",
-			job: "Piloto de Carreras",
-			avatar: avatar6,
-		},
-		{
-			testimony:
-				"El equipo demostró un gran profesionalismo en las pruebas hidrostáticas. ¡Increíble trabajo!",
-			name: "Jorge Rodríguez",
-			job: "Ingeniero Naval",
-			avatar: avatar7,
-		},
-		{
-			testimony:
-				"El servicio de rectificación de bloques y cigüeñales fue excepcional. El motor de mi vehículo ahora funciona mejor que nunca. ¡Gracias!",
-			name: "María Torres",
-			job: "Dueña de Auto Lavado",
-			avatar: avatar8,
-		},
-		{
-			testimony:
-				"Estoy muy contento con el servicio de montaje hasta el cepillado. El equipo fue muy profesional y el resultado final fue excelente. ¡Lo recomiendo ampliamente!",
-			name: "Roberto Pérez",
-			job: "Entusiasta de los Motores",
-			avatar: avatar9,
-		},
-		{
-			testimony:
-				"Excelente servicio. Mi motor quedó como nuevo después de la rectificación. ¡Gracias por su profesionalismo!",
-			name: "Ana Martínez",
-			job: "Mecánica de Autos",
-			avatar: avatar10,
-		},
-	];
+	const testimonials = allTestimonials.slice(0, 10); // 10 -> max testimonials
 	const $masonryContainer = document.getElementById("masonry-container");
 	const masonryColumns = 2;
 	const insertMasonryItem = ({
@@ -478,12 +626,16 @@ const METADATA_INFO = {
 
 	for (let i = 0; i < masonryColumns; i++) {
 		masonryColumnsItems[`col${i}`] = document.createElement("div");
-		masonryColumnsItems[`col${i}`].classList.add("flex", "flex-col", "gap-y-4");
+		masonryColumnsItems[`col${i}`].classList.add(
+			"flex",
+			"flex-col",
+			"gap-y-4",
+		);
 	}
 
 	for (let i = 0; i < masonryColumns; i++) {
-		const currentTestimony = TESTIMONIALS[i];
-		if (!currentTestimony || !TESTIMONIALS.length) break;
+		const currentTestimony = testimonials[i];
+		if (!currentTestimony || !testimonials.length) break;
 
 		const $li = document.createElement("li");
 		$li.classList.add(
@@ -498,11 +650,14 @@ const METADATA_INFO = {
 			"rounded",
 			"h-fit",
 		);
-		$li.insertAdjacentHTML("beforeend", insertMasonryItem(currentTestimony));
+		$li.insertAdjacentHTML(
+			"beforeend",
+			insertMasonryItem(currentTestimony),
+		);
 		masonryColumnsItems[`col${i}`].appendChild($li);
 
 		if (i === masonryColumns - 1) {
-			TESTIMONIALS.splice(0, masonryColumns);
+			testimonials.splice(0, masonryColumns);
 			i = -1;
 		}
 	}
@@ -514,13 +669,28 @@ const METADATA_INFO = {
 	const $navLinks = document.querySelector("[data-nav-links]");
 
 	$hamburgerButton?.addEventListener("click", () => {
-		if ($hamburgerButton?.getAttribute("aria-expanded") === "true") {
-			$navLinks?.classList.remove("opacity-100", "pointer-events-auto");
-			$navLinks?.classList.add("opacity-0", "pointer-events-none");
+		if (
+			$hamburgerButton?.getAttribute("aria-expanded") ===
+			"true"
+		) {
+			$navLinks?.classList.remove(
+				"opacity-100",
+				"pointer-events-auto",
+			);
+			$navLinks?.classList.add(
+				"opacity-0",
+				"pointer-events-none",
+			);
 			$hamburgerButton.setAttribute("aria-expanded", "false");
 		} else {
-			$navLinks?.classList.remove("opacity-0", "pointer-events-none");
-			$navLinks?.classList.add("opacity-100", "pointer-events-auto");
+			$navLinks?.classList.remove(
+				"opacity-0",
+				"pointer-events-none",
+			);
+			$navLinks?.classList.add(
+				"opacity-100",
+				"pointer-events-auto",
+			);
 			$hamburgerButton.setAttribute("aria-expanded", "true");
 		}
 	});
