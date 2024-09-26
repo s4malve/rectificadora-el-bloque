@@ -39,7 +39,7 @@ import avatar21 from "../assets/avatar-21.avif";
 import { Image } from "astro:assets";
 
 const NAV_LINKS = [
-	{ path: "", label: "Inicio" },
+	{ path: "/", label: "Inicio" },
 	{ path: "#services", label: "Servicios" },
 	{ path: "#testimonials", label: "Testimonios" },
 	{ path: "#contact-us", label: "Contáctanos" },
@@ -338,7 +338,7 @@ const METADATA_INFO = {
 			<nav
 				class="flex items-center justify-between py-10 w-full relative"
 			>
-				<a href="#" class="mr-10">
+				<a href="/" class="mr-10">
 					<Logo />
 				</a>
 				<button
@@ -678,7 +678,7 @@ const METADATA_INFO = {
 		job,
 	}) => `<p class="mb-6 max-w-4xl">"${testimony}"</p>
 <div class="flex row-reverse items-center justify-end w-full gap-x-4">					
-<img src=${avatar.src} alt="Profile pic from ${name}" class="w-10 aspect-square rounded-full object-cover" />
+<img src=${avatar.src} fetchpriority="low" loading="lazy" alt="Profile pic from ${name}" class="w-10 aspect-square rounded-full object-cover" />
 <div class="flex flex-col">
 <span class="text-stone-300">${name}</span>
 <span>${job}</span>
