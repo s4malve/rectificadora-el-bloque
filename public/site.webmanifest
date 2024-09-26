@@ -6,6 +6,20 @@
 	"theme_color": "#0c0a09",
 	"background_color": "#0c0a09",
 	"display": "standalone",
+	"screenshots": [
+		{
+			"src": "/screenshot-web.webp",
+			"type": "image/webp",
+			"sizes": "1920x5278",
+			"form_factor": "wide"
+		},
+		{
+			"src": "/screenshot-mobile.webp",
+			"type": "image/webp",
+			"sizes": "375x7823",
+			"form_factor": "narrow"
+		}
+	],
 	"icons": [
 		{
 			"src": "/icons/safari-pinned-tab-white.svg",
