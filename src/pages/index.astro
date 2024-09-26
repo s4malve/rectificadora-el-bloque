@@ -225,38 +225,82 @@ const METADATA_INFO = {
 	url: Astro.site,
 	image: new URL("/meta-cover.png", Astro.url),
 };
-
-const absoluteURL = (path: string) => new URL(path, Astro.url);
 ---
 
 <html lang="es" class="scroll-smooth">
 	<head>
 		<meta charset="utf-8" />
+		<title>{METADATA_INFO.title}</title>
 		<link
-			rel="icon"
-			type="image/svg+xml"
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/icons/apple-touch-icon.png"
 			media="(prefers-color-scheme: light)"
-			sizes="32x32"
-			href={absoluteURL("/favicon.svg")}
-		/>
-		<link
-			href={absoluteURL("/favicon-dark.svg")}
-			type="image/svg+xml"
-			rel="icon"
-			sizes="32x32"
-			media="(prefers-color-scheme: dark)"
 		/>
 		<link
 			rel="apple-touch-icon"
-			sizes="32x32"
-			type="image/svg+xml"
-			href={absoluteURL("/favicon-dark.svg")}
+			sizes="180x180"
+			href="/icons/apple-touch-icon-white.png"
+			media="(prefers-color-scheme: dark)"
 		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="/icons/favicon-32x32.png"
+			media="(prefers-color-scheme: light)"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="/icons/favicon-32x32-white.png"
+			media="(prefers-color-scheme: dark)"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="/icons/favicon-16x16.png"
+			media="(prefers-color-scheme: light)"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="/icons/favicon-16x16-white.png"
+			media="(prefers-color-scheme: dark)"
+		/>
+		<link
+			rel="mask-icon"
+			href="/icons/safari-pinned-tab.svg"
+			color="#0c0a09"
+			media="(prefers-color-scheme: light)"
+		/>
+		<link
+			rel="mask-icon"
+			href="/icons/safari-pinned-tab-white.svg"
+			color="#0c0a09"
+			media="(prefers-color-scheme: dark)"
+		/>
+		<link
+			rel="shortcut icon"
+			href="/icons/favicon.ico"
+			media="(prefers-color-scheme: light)"
+		/>
+		<link
+			rel="shortcut icon"
+			href="/icons/favicon-white.ico"
+			media="(prefers-color-scheme: dark)"
+		/>
+		<link rel="manifest" href="/site.webmanifest" />
+		<meta name="msapplication-TileColor" content="#da532c" />
+		<meta name="theme-color" content="#0c0a09" />
+
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 
 		<!-- Primary Meta Tags -->
-		<title>{METADATA_INFO.title}</title>
 		<meta name="title" content={METADATA_INFO.title} />
 		<meta name="description" content={METADATA_INFO.description} />
 
