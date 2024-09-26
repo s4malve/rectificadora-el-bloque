@@ -14,12 +14,9 @@ export const button = cva(
 	{
 		variants: {
 			style: {
-				primary:
-					"bg-stone-100 text-stone-950 hover:bg-transparent border-transparent hover:border-stone-100 hover:text-stone-100",
-				secondary:
-					"border-stone-950 text-stone-950 hover:bg-stone-950 hover:text-stone-100",
-				tertiary:
-					"border-stone-100 text-stone-100 hover:bg-stone-100 hover:text-stone-950",
+				primary: "bg-stone-100 text-stone-950 hover:bg-transparent border-transparent hover:border-stone-100 hover:text-stone-100",
+				secondary: "border-stone-950 text-stone-950 hover:bg-stone-950 hover:text-stone-100",
+				tertiary: "border-stone-100 text-stone-100 hover:bg-stone-100 hover:text-stone-950",
 			},
 			size: {
 				icon: "p-3",
@@ -43,5 +40,6 @@ const { href, className, size, style, position } = Astro.props as Props;
 <a
 	href={href}
 	target="_blank"
+	rel="noopener noreferrer"
 	class={button({ className, size, style, position })}><slot /></a
 >
