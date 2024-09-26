@@ -5,7 +5,7 @@ export const BUSINESS_INFO = {
 		formatted: "+57 317 647 8704",
 	},
 	address: {
-		formatted: "Cra 23 #10 - 45 / Bucaramanga Colombia",
+		formatted: "Cra 23 # 10 - 45 / Bucaramanga Colombia",
 	},
 };
 
@@ -14,5 +14,5 @@ export const LINKS = {
 	facebook: "https://facebook.com/",
 	instagram: "https://instagram.com/",
 	tiktok: "https://tiktok.com/",
-	googleMaps: "",
+	googleMaps: "https://maps.app.goo.gl/wHvVC2NheQBtqqVL9",
 };

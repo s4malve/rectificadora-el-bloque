@@ -464,11 +464,18 @@ const METADATA_INFO = {
 				class="flex items-center justify-center flex-wrap gap-10 w-full mt-10"
 				id="contact-us"
 			>
-				<Image
-					src={googleMapsImg}
-					class="w-full max-w-xl flex"
-					alt="A gooogle maps view with the pin on the business direction"
-				/>
+				<a
+					href={LINKS.googleMaps}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="overflow-hidden [&:hover_img]:scale-105 rounded-3xl"
+				>
+					<Image
+						src={googleMapsImg}
+						class="w-full max-w-xl flex transition-transform"
+						alt="A gooogle maps view with the pin on the business direction"
+					/>
+				</a>
 				<div class="flex flex-col gap-y-10">
 					<div class="flex flex-col gap-y-3">
 						<h2
